@@ -1,6 +1,6 @@
 {
   "name": "recipes-app-test",
-  "home": " https://lucascbb.github.io/recipes",
+  "home": "https://lucascbb.github.io/recipes",
   "version": "1.0.0",
   "private": true,
   "engines": {

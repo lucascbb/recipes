@@ -1,0 +1,89 @@
+.body {
+  align-items: center;
+  flex-direction: column;
+  width: 320px;
+}
+
+.filter-Btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-filter {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.recipes {
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 7px;
+  display: flex;
+  margin: 10px 19px 10px 23px;
+  position: relative;
+}
+
+.details {
+  padding-left: 10px;
+  text-align: justify;
+}
+
+.name-Recipe {
+  color: black;
+  cursor: pointer;
+  height: 700px;
+  text-decoration: none;
+}
+
+.name {
+  font-size: 12px;
+  margin-top: 23px;
+}
+
+.other-details, .doneDate {
+  font-size: 9px;
+}
+
+.other-details {
+  color: gray;
+  margin-top: 3px;
+}
+
+.doneDate {
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.tag {
+  background-color: rgb(209, 209, 209);
+  border-radius: 10px;
+  color: rgb(131, 131, 131);
+  font-size: 8px;
+  margin: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: min-content;
+}
+
+.tag-container {
+  display: flex;
+}
+
+.image {
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+  margin-bottom: -4px;
+  width: 140px;
+}
+
+.share-Btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  margin-top: 15px;
+  overflow: hidden;
+  width: 35px;
+}

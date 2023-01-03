@@ -137,13 +137,13 @@ function RecipeInProgress() {
             <button
               className="details-backbtn"
               type="button"
-              onClick={ () => {
-                if (pathname.includes('drinks')) {
-                  history.push('/drinks');
-                } else {
-                  history.push('/meals');
-                }
-              } }
+              // onClick={ () => {
+              //   if (pathname.includes('drinks')) {
+              //     history.push('/drinks');
+              //   } else {
+              //     history.push('/meals');
+              //   }
+              // } }
             >
               <img src={ back } alt="" className="details-backicon" />
             </button>
@@ -203,13 +203,13 @@ function RecipeInProgress() {
             <button
               className="details-backbtn"
               type="button"
-              onClick={ () => {
-                if (pathname.includes('drinks')) {
-                  history.push('/drinks');
-                } else {
-                  history.push('/meals');
-                }
-              } }
+              // onClick={ () => {
+              //   if (pathname.includes('drinks')) {
+              //     history.push('/drinks');
+              //   } else {
+              //     history.push('/meals');
+              //   }
+              // } }
             >
               <img src={ back } alt="" className="details-backicon" />
             </button>

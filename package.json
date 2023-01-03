@@ -1,5 +1,6 @@
 {
   "name": "recipes-app-test",
+  "home": " https://lucascbb.github.io/recipes",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -9,6 +10,7 @@
     "@redux-devtools/extension": "^3.2.3",
     "bootstrap": "^5.2.0",
     "clipboard-copy": "^4.0.1",
+    "gh-pages": "^4.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -21,6 +23,8 @@
     "redux-thunk": "^2.4.2"
   },
   "scripts": {
+    "predeploy" : "npm run build", 
+    "deploy": "gh-pages -d build",
     "cy": "env CY_CLI=true cypress run",
     "cy:open": "cypress open --e2e --browser chrome",
     "start": "env ESLINT_NO_DEV_ERRORS=true react-scripts start",

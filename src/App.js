@@ -12,7 +12,7 @@ import RecipeInProgress from './components/RecipeInProgress';
 function App() {
   return (
     <Switch>
-      <Route exact path="/" component={ Login } />
+      <Route exact path="/recipes" component={ Login } />
       <Route exact path="/meals" component={ Recipes } />
       <Route exact path="/drinks" component={ Recipes } />
       <Route exact path="/meals/:id" component={ RecipeDetails } />

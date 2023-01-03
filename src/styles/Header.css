@@ -1,0 +1,76 @@
+:root {
+
+  --color-red: #f50043;
+
+  --color-yellow: #f5e618;
+
+  --color-blue: #18bff5;
+
+
+}
+
+
+.HeaderPrincipalDiv {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.HeaderSecondDiv {
+  background-color: var(--color-red);
+  display: flex;
+  justify-content: space-around;
+  padding: 14px 0;
+  width: 100%;
+}
+
+.HeaderButtonsDiv {
+  align-items: center;
+  display: flex;
+}
+
+.HeaderIcon {
+  width: 70px;
+}
+
+.HeaderTitle {
+  color: var(--color-yellow);
+  font-size: 1.85em;
+  margin-left: 15px;
+}
+
+.HeaderBTNs, .HeaderButtonTitle {
+  background: none;
+  border: none;
+}
+
+.HeaderBTNs:hover, .HeaderButtonTitle:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+
+.HeaderProfileBTN {
+  height: 45px;
+  width: 45px;
+}
+
+.HeaderSearchBTN {
+  height: 45px;
+  width: 45px;
+}
+
+.HeaderPageName {
+  align-items: center;
+  color: var(--color-yellow);
+  display: flex;
+  flex-direction: column;
+  font-size: 2em;
+  text-align: center;
+  text-shadow: rgb(223, 180, 180) 1px 1px;
+}
+
+.HeaderIconPage {
+  height: 65px;
+  padding-bottom: 7px;
+  text-align: center;
+}

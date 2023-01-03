@@ -1,0 +1,81 @@
+.email-title {
+  color: #1a1b1c;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  height: 12px;
+  left: 44px;
+  line-height: 16px;
+  position: absolute;
+  text-align: center;
+  top: 215px;
+  width: 273px;
+}
+
+.button-done-profile {
+  align-items: center;
+  background-color: #f5e618;
+  border-radius: 20px;
+  color: #797d86;
+  display: flex;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  height: 50.69px;
+  justify-content: center;
+  left: 57.56px;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+  position: absolute;
+  text-transform: capitalize;
+  top: 261px;
+  width: 250.44px;
+}
+
+.button-favorite-profile {
+  align-items: center;
+  background-color: #f5e618;
+  border-radius: 20px;
+  color: #797d86;
+  display: flex;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  height: 50.69px;
+  justify-content: center;
+  left: 58px;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+  position: absolute;
+  text-transform: capitalize;
+  top: 347px;
+  width: 250.44px;
+}
+
+.button-logout-profile {
+  align-items: center;
+  background-color: #f5e618;
+  border-radius: 20px;
+  color: #797d86;
+  display: flex;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  height: 50.69px;
+  justify-content: center;
+  left: 55px;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+  position: absolute;
+  text-transform: capitalize;
+  top: 433px;
+  width: 250.44px;
+}
+
+.icon-profile {
+  padding: 5px;
+}

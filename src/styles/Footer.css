@@ -1,0 +1,37 @@
+:root {
+
+  --color-red: #f50043;
+
+  --color-yellow: #f5e618;
+
+  --color-blue: #18bff5;
+
+
+}
+
+.footer {
+  background-color: var(--color-yellow);
+  bottom: 0;
+  padding: 8px;
+  position: fixed;
+  width: 100%;
+}
+
+.footer-pricipalDiv {
+
+  /* background-color: var(); */
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer-buttons {
+  background: none;
+  border: none;
+}
+
+.footer-buttons:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+

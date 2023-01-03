@@ -1,0 +1,99 @@
+.details-backbtn {
+  all: unset;
+  margin: 10px 15px;
+}
+
+.details-backicon {
+  width: 25px;
+}
+
+.recipeDetails-img {
+  box-shadow: 0 2px 10px 2px rgb(80, 80, 80);
+  filter: opacity(0.7) blur(1px);
+  margin-top: -60px;
+  width: 100%;
+  z-index: -2;
+}
+
+.details-btns {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  right: 0;
+  top: 5px;
+  z-index: 2;
+}
+
+.details-video {
+  height: 230px;
+  margin: 20px 0 0;
+  width: 100%;
+}
+
+.details-name {
+  font-family: Bebas Neue , cursive;
+  font-size: 10vw;
+  max-width: 240px;
+  padding: 0 20px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgb(146, 146, 146);
+  top: 30vw;
+}
+
+.details-paiName {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.details-doubleBtns {
+  display: flex;
+}
+
+.details-category {
+  font-family: Arial , Helvetica , sans-serif;
+  font-weight: 900;
+  margin: 20px 0 0 30px;
+}
+
+.details-recipe {
+  background-color: #ded17c;
+  border-radius: 10px;
+  font-family: Arial , Helvetica , sans-serif;
+  margin: 0 20px;
+  padding: 20px 35px;
+}
+
+.details-ingredients {
+  font-family: Arial , Helvetica , sans-serif;
+  margin: 10px 20px;
+}
+
+.details-paiIngredients {
+  background-color: #e07c5d;
+  border-radius: 10px;
+  margin: 15px 20px;
+  padding: 10px 20px;
+}
+
+.details-wrapper {
+  font-family: Arial , Helvetica , sans-serif;
+  margin: 15px 0 10px 25px;
+}
+
+.details-start {
+  background-color: #e07c5d;
+  border-radius: 10px;
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  margin: 10px;
+  padding: 15px 20px;
+  width: 80%;
+}
+
+.details-paiStart {
+  display: flex;
+  justify-content: center;
+}

@@ -10,6 +10,8 @@ import ShareButton from './ShareButton';
 import RecommendationCard from './RecommendationCard';
 import '../styles/RecipeDetails.css';
 import back from '../images/back.png';
+import instruction from '../images/instructions.png';
+import ingredientsImg from '../images/ingredients.png';
 
 function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
   const dispatch = useDispatch();
@@ -151,15 +153,26 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
               >
                 {`Category: ${recipe[type][0].strCategory}`}
               </p>
+
               <div className="details-paiIngredients">
+                <div className="details-paiingredient">
+                  <img src={ ingredientsImg } className="details-imgIngredient"/>
+                  <p className="details-ingredient">Ingredients</p>
+                </div>
                 {setAllIngredients()}
               </div>
-              <p
-                data-testid="instructions"
-                className="details-recipe"
-              >
-                {recipe[type][0].strInstructions}
-              </p>
+
+              <div className="details-paiInstructions">
+                <div className="details-paiingredient">
+                  <img src={ instruction } className="details-imgIngredient"/>
+                  <p className="details-ingredient">Instruction</p>
+                </div>
+                <p
+                  data-testid="instructions"
+                  className="details-instructions"
+                >{recipe[type][0].strInstructions}</p>
+              </div>
+
               <iframe
                 data-testid="video"
                 // width="560"

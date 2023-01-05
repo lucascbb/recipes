@@ -74,11 +74,6 @@ class Meals extends React.Component {
     dispatch(recipesMeals(dozeCategories));
 
     this.setState({ selectedCategory: target.id });
-
-    console.log(target.name);
-    console.log(selectedCategory);
-    console.log(document.getElementsByClassName(selectedCategory)[0]);
-
     const p = document.getElementsByClassName(selectedCategory)[0];
 
     if (target.id === selectedCategory) {

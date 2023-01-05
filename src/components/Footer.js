@@ -9,30 +9,36 @@ function Footer() {
   return (
     <footer data-testid="footer" className="footer">
       <div className="footer-pricipalDiv">
-        <button
-          className="footer-buttons"
-          type="button"
-          src={ drinkIcon }
-          data-testid="drinks-bottom-btn"
-          onClick={ () => { history.push('/drinks'); } }
-        >
-          <img
+        <div className="footer-paibuttons">
+          <button
+            className="footer-buttons1"
+            type="button"
             src={ drinkIcon }
-            alt="drinkIcon"
-          />
-        </button>
-        <button
-          type="button"
-          className="footer-buttons"
-          src={ mealIcon }
-          data-testid="meals-bottom-btn"
-          onClick={ () => { history.push('/meals'); } }
-        >
-          <img
+            data-testid="drinks-bottom-btn"
+            onClick={ () => { history.push('/drinks'); } }
+          >
+            <img
+              className="footer-img"
+              src={ drinkIcon }
+              alt="drinkIcon"
+            />
+          </button>
+        </div>
+        <div className="footer-paibuttons">
+          <button
+            type="button"
+            className="footer-buttons2"
             src={ mealIcon }
-            alt="mealIcon"
-          />
-        </button>
+            data-testid="meals-bottom-btn"
+            onClick={ () => { history.push('/meals'); } }
+          >
+            <img
+              className="footer-img"
+              src={ mealIcon }
+              alt="mealIcon"
+            />
+          </button>
+        </div>
       </div>
     </footer>
   );

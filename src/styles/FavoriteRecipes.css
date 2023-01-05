@@ -1,31 +1,61 @@
+.category-paibtns {
+  align-items: center;
+  box-shadow: 0 4px 5px 0 rgba(2, 2, 2, 0.445);
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 10px 0;
+  padding: 0 0 5px;
+}
+
+.category-paibtn {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.allFood {
+  height: 40px;
+  width: 40px;
+}
+
+.all2 {
+  height: 35px;
+  width: 35px;
+}
+
+.favorite-cate {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+}
+
 .category-btn-favorite {
+  align-items: center;
   background: linear-gradient(to bottom, #f50043 5%, #b71741 100%);
   background-color: #f50043;
-  border: 1px solid rgb(93, 93, 93);
-  border-radius: 5px;
-  box-shadow: 0 4px 10px 0 rgb(130, 130, 130);
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(2, 2, 2, 0.774);
   color: white;
+  display: flex;
   font-size: 14px;
   font-weight: 900;
-  margin: 5px 10px;
+  height: 65px;
+  justify-content: center;
+  margin: 5px 20px;
   padding: 10px;
   text-decoration: none;
   text-shadow: 0 1px 0 #4a0416;
-  width: 90px;
+  width: 65px;
 }
 
 .favorite-details-container {
-  border-radius: var(--border-radius);
+  background-color: aquamarine;
   display: flex;
-  max-height: 11rem;
-  overflow: hidden;
-  padding-bottom: 20px;
-  padding-inline-end: 0.8rem;
-  position: relative;
 }
 
 .image-food-details {
-  height: 176px;
+  width: 200px;
 }
 
 .title-name {
@@ -63,10 +93,18 @@
   margin-top: 10px;
 }
 
-.btn-share button {
+.favorite-btns {
   align-items: center;
-  background: none;
-  border: none;
-  gap: 1rem;
-  margin-left: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-favorite {
+  all: unset;
+  height: 40px;
+  width: 40px;
+}
+
+.btn-share {
+  all: unset;
 }

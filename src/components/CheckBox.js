@@ -3,8 +3,7 @@ import React from 'react';
 function CheckBox({ ingredient, index,
   handleCheckedMain, check }) {
   return (
-    <>
-      {' '}
+    <div>
       <label
         htmlFor={ ingredient }
         data-testid={ `${index}-ingredient-step` }
@@ -20,8 +19,7 @@ function CheckBox({ ingredient, index,
         />
         {ingredient}
       </label>
-
-    </>
+    </div>
   );
 }
 CheckBox.propTypes = {

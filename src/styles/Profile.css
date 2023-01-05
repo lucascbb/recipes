@@ -1,81 +1,64 @@
+.email-paititle {
+  align-items: center;
+  background: #f50043;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 25px;
+  width: 270px;
+}
+
 .email-title {
-  color: #1a1b1c;
+  color: white;
   font-family: Epilogue , sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  height: 12px;
-  left: 44px;
-  line-height: 16px;
-  position: absolute;
+  font-size: 15px;
+  font-weight: 900;
   text-align: center;
-  top: 215px;
-  width: 273px;
+  margin: 15px 0;
+  max-width: 80%;
+  overflow: hidden;
 }
 
-.button-done-profile {
-  align-items: center;
-  background-color: #f5e618;
-  border-radius: 20px;
-  color: #797d86;
-  display: flex;
-  font-family: Epilogue , sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  height: 50.69px;
-  justify-content: center;
-  left: 57.56px;
-  letter-spacing: 0.03em;
-  line-height: 16px;
-  position: absolute;
-  text-transform: capitalize;
-  top: 261px;
-  width: 250.44px;
+.profile-ProfileBTN {
+  height: 40px;
+  margin: 10px 10px 0;
+  width: 40px;
 }
 
-.button-favorite-profile {
+.button-profile {
   align-items: center;
-  background-color: #f5e618;
-  border-radius: 20px;
-  color: #797d86;
+  background: linear-gradient(to bottom, #f50043 5%, #c40135 100%);
+  border-radius: 8px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.361);
+  color: white;
   display: flex;
-  font-family: Epilogue , sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  height: 50.69px;
-  justify-content: center;
-  left: 58px;
-  letter-spacing: 0.03em;
-  line-height: 16px;
-  position: absolute;
-  text-transform: capitalize;
-  top: 347px;
-  width: 250.44px;
+  font-size: 20px;
+  font-weight: 900;
+  height: 55px;
+  justify-content: flex-start;
+  margin: 25px 0 0;
+  padding: 13px 32px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #4a0416;
+  width: 270px;
 }
 
-.button-logout-profile {
+.button-profile:hover {
+  transform: scale(1.05);
+}
+
+.profile-paiBtns {
   align-items: center;
-  background-color: #f5e618;
-  border-radius: 20px;
-  color: #797d86;
   display: flex;
-  font-family: Epilogue , sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  height: 50.69px;
+  flex-direction: column;
   justify-content: center;
-  left: 55px;
-  letter-spacing: 0.03em;
-  line-height: 16px;
-  position: absolute;
-  text-transform: capitalize;
-  top: 433px;
-  width: 250.44px;
 }
 
 .icon-profile {
-  padding: 5px;
+  height: 30px;
+  margin-left: -15px;
+  margin-right: 10px;
+  width: 30px;
 }

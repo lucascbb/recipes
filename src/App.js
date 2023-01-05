@@ -4,7 +4,6 @@ import Login from './pages/Login';
 import Recipes from './components/Recipes';
 import RecipeDetails from './components/RecipeDetails';
 import Profile from './pages/Profile';
-import './App.css';
 import DoneRecipes from './pages/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
 import RecipeInProgress from './components/RecipeInProgress';

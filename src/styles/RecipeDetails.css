@@ -10,7 +10,7 @@
 .recipeDetails-img {
   box-shadow: 0 2px 10px 2px rgb(80, 80, 80);
   filter: opacity(0.7) blur(1px);
-  margin-top: -60px;
+  margin-top: -50px;
   width: 100%;
   z-index: -2;
 }
@@ -62,19 +62,38 @@
   border-radius: 10px;
   font-family: Arial , Helvetica , sans-serif;
   margin: 0 20px;
-  padding: 20px 35px;
+  padding: 25px;
+}
+
+.details-instructionTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.details-ingredient {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0 0 1px 5px;
 }
 
 .details-ingredients {
   font-family: Arial , Helvetica , sans-serif;
-  margin: 10px 20px;
+  margin: 10px 8px;
 }
 
 .details-paiIngredients {
   background-color: #e07c5d;
   border-radius: 10px;
   margin: 15px 20px;
-  padding: 10px 20px;
+  padding: 20px;
+}
+
+.details-paiInstructions {
+  background-color: #ded17c;
+  border-radius: 10px;
+  margin: 15px 20px;
+  padding: 20px;
 }
 
 .details-wrapper {
@@ -96,4 +115,19 @@
 .details-paiStart {
   display: flex;
   justify-content: center;
+}
+
+.details-imgIngredient {
+  height: 30px;
+  width: 30px;
+}
+
+.details-paiingredient {
+  align-items: center;
+  display: flex;
+}
+
+.details-instructions {
+  font-family: Arial , Helvetica , sans-serif;
+  margin: 10px 8px;
 }

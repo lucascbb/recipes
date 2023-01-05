@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Copy from 'clipboard-copy';
 import { useLocation } from 'react-router-dom';
-import shareIcon from '../images/shareIcon.svg';
+import shareIcon from '../styles/icons/share.png';
 
 function ShareButton() {
   const location = useLocation();

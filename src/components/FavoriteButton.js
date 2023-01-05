@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import UnfilledIcon from '../images/whiteHeartIcon.svg';
-import filledIcon from '../images/blackHeartIcon.svg';
+import UnfilledIcon from '../images/whiteHeartIcon.png';
+import filledIcon from '../images/blackHeartIcon.png';
 
 function FavoriteButton() {
   const actualRecipe = useSelector((state) => state.recipes.recipesForId);

@@ -66,19 +66,19 @@
   flex-direction: column;
   font-family: Bebas Neue , cursive;
   font-size: 14px;
-  height: 65px;
+  height: 0.1px;
   letter-spacing: 0.5px;
-  margin: 0 12px 20px;
+  margin: 0 38px 85px;
   text-align: center;
-  width: 55px;
+  width: 1px;
 }
 
-.Shake, .Cocktail, .Cocoa, .Shot, .Coffee, .Tea, .Homemade, .Punch, .Beer, .Soft {
+.Cocktail, .Cocoa, .Shot, .Coffee, .Tea, .Punch {
   height: 30px;
   width: 30px;
 }
 
-.Ordinary, .Unknown {
-  height: 30px;
-  width: 30px;
+.Soft,  .Homemade, .Unknown, .Shake, .Ordinary, .Beer {
+  height: 35px;
+  width: 35px;
 }

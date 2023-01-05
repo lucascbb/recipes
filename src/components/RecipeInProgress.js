@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import FavoriteButton from './FavoriteButton';
 import ShareButton from './ShareButton';
 import { receiveRecipeforId } from '../redux/actions/index';
 import CheckBox from './CheckBox';
 import '../styles/Inprogress.css';
 import back from '../images/back.png';
+import instruction from '../images/instructions.png';
+import ingredientsImg from '../images/ingredients.png';
 
 function RecipeInProgress() {
   const dispatch = useDispatch();
@@ -16,7 +19,7 @@ function RecipeInProgress() {
   const [drinksID, setDataDrinks] = useState();
   const [mealsID, setDataMeals] = useState();
   const [finishBTN, setFinishBTN] = useState(true);
-  const [numberCheckbox, setNumberCheckbox] = useState(0);
+  const [numberCheckbox, setNumberCheckbox] = useState(document.getElementsByClassName('inprogress-input').length);
   const [listOfIngredients, setListOfIngredients] = useState([]);
   const saveLocalStorage = (newArray) => {
     const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
@@ -29,7 +32,6 @@ function RecipeInProgress() {
     }
   };
   const handleChecked = ({ target }) => {
-    setNumberCheckbox(target.parentNode.parentNode.parentNode.childElementCount);
     if (listOfIngredients) {
       const checked = listOfIngredients.some((e) => (e === target.name));
       if (!checked) {
@@ -45,12 +47,25 @@ function RecipeInProgress() {
       }
     }
   };
+
   const testADD = (ingredient) => {
     let checked = false;
     if (listOfIngredients) {
       checked = listOfIngredients.some((e) => (e === ingredient));
     } return checked;
   };
+
+  useEffect(() => {
+    if (listOfIngredients.length > 0 && numberCheckbox > 0 
+      && numberCheckbox === listOfIngredients.length) {
+      setFinishBTN(false)
+    } else if (listOfIngredients.length > 0 && numberCheckbox === 0) {
+      setFinishBTN(false)
+    } else { 
+      setFinishBTN(true)     
+    }
+  }, [listOfIngredients, numberCheckbox]);
+
   const saveMeals = () => {
     const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
     if (!inProgressRecipes.meals[id]) {
@@ -60,6 +75,7 @@ function RecipeInProgress() {
       })); setListOfIngredients([]);
     }
   };
+
   const saveDrinks = () => {
     const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
     if (!inProgressRecipes.drinks[id]) {
@@ -69,6 +85,7 @@ function RecipeInProgress() {
       })); setListOfIngredients([]);
     }
   };
+
   useEffect(() => {
     const inProgressRecipes2 = JSON.parse(localStorage.getItem('inProgressRecipes'));
     if (!inProgressRecipes2) {
@@ -90,7 +107,7 @@ function RecipeInProgress() {
             .includes('strIngredient') && ele[1]).map((ele) => ele[1]).length);
           if (inProgressRecipes.meals[id]) {
             setListOfIngredients(inProgressRecipes.meals[id]);
-          }
+          } 
         }); saveMeals();
     } else {
       fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
@@ -106,11 +123,7 @@ function RecipeInProgress() {
       } saveDrinks();
     }
   }, []);
-  useEffect(() => {
-    if (listOfIngredients.length === numberCheckbox) {
-      setFinishBTN(false);
-    } else { setFinishBTN(true); }
-  }, [listOfIngredients]);
+
   const handleFinish = () => {
     const doneRecipesLocal = JSON.parse(localStorage.getItem('doneRecipes'));
     const result = location.pathname.includes('meals');
@@ -128,7 +141,8 @@ function RecipeInProgress() {
     localStorage.setItem('doneRecipes', JSON.stringify(recipesFood));
     history.push('/done-recipes');
   };
-  console.log(location.pathname);
+
+  console.log(mealsID)
   return (
     <div>
       {drinksID ? (
@@ -137,18 +151,20 @@ function RecipeInProgress() {
             <button
               className="details-backbtn"
               type="button"
-              // onClick={ () => {
-              //   if (pathname.includes('drinks')) {
-              //     history.push('/drinks');
-              //   } else {
-              //     history.push('/meals');
-              //   }
-              // } }
+              onClick={ () => {
+                if (location.pathname.includes('drinks')) {
+                  history.push('/drinks');
+                } else {
+                  history.push('/meals');
+                }
+              } }
             >
               <img src={ back } alt="" className="details-backicon" />
             </button>
-            <ShareButton testid="share-btn" />
-            <FavoriteButton />
+            <div className="details-doubleBtns">
+              <FavoriteButton />
+              <ShareButton testid="share-btn" />
+            </div>
           </div>
           <img
             className="inProgress-img"
@@ -164,20 +180,29 @@ function RecipeInProgress() {
               { drinksID.strDrink }
             </p>
           </div>
-          <p data-testid="recipe-category">{ `Category: ${drinksID.strCategory}` }</p>
-          <div className="inProgress-avoInstruction">
-            <div className="inProgress-paiInstruction">
+          <p 
+            data-testid="recipe-category"
+            className="details-category"
+          >
+            { `Category: ${drinksID.strCategory}` }
+          </p>
+          <div className="inProgress-paiInstruction">
+            <div className="inProgress-imgpai">
+              <img src={ instruction } alt="" className="inProgress-IMGinstruction"/>
               <p className="inProgress-instructionTitle">Instruction</p>
-              <p
-                data-testid="instructions"
-                className="inProgress-instruction"
-              >
-                { drinksID.strInstructions }
-              </p>
             </div>
+            <p
+              data-testid="instructions"
+              className="inProgress-instruction"
+            >
+              { drinksID.strInstructions }
+            </p>
           </div>
-          <p>Ingredients</p>
-          <div id="checkboxes">
+          <div className="inProgress-checkbox">
+            <div className="inProgress-imgpai">
+              <img src={ ingredientsImg } alt="" className="inProgress-IMGinstruction"/>
+              <p className="inProgress-ingredient">Ingredients</p>
+            </div>
             {Object.entries(drinksID).filter((ele) => ele[0]
               .includes('strIngredient') && ele[1]).map((ele) => ele[1])
               .map((ele2Ingredient, indexDrinks) => (
@@ -203,18 +228,20 @@ function RecipeInProgress() {
             <button
               className="details-backbtn"
               type="button"
-              // onClick={ () => {
-              //   if (pathname.includes('drinks')) {
-              //     history.push('/drinks');
-              //   } else {
-              //     history.push('/meals');
-              //   }
-              // } }
+              onClick={ () => {
+                if (location.pathname.includes('drinks')) {
+                  history.push('/drinks');
+                } else {
+                  history.push('/meals');
+                }
+              } }
             >
               <img src={ back } alt="" className="details-backicon" />
             </button>
-            <ShareButton testid="share-btn" />
-            <FavoriteButton />
+            <div className="details-doubleBtns">
+              <FavoriteButton />
+              <ShareButton testid="share-btn" />
+            </div>
           </div>
           <img
             className="inProgress-img"
@@ -227,23 +254,32 @@ function RecipeInProgress() {
               data-testid="recipe-title"
               className="inProgress-name"
             >
-              { mealsID.strArea }
+              { mealsID.strMeal }
             </p>
           </div>
-          <p data-testid="recipe-category">{ `Category: ${mealsID.strCategory}` }</p>
-          <div className="inProgress-avoInstruction">
-            <div className="inProgress-paiInstruction">
+          <p 
+            data-testid="recipe-category"
+            className="details-category"
+          >
+            { `Category: ${mealsID.strCategory}` }
+          </p>
+          <div className="inProgress-paiInstruction">
+            <div className="inProgress-imgpai">
+              <img src={ instruction } alt="" className="inProgress-IMGinstruction"/>
               <p className="inProgress-instructionTitle">Instruction</p>
-              <p
-                data-testid="instructions"
-                className="inProgress-instruction"
-              >
-                { mealsID.strInstructions }
-              </p>
             </div>
+            <p
+              data-testid="instructions"
+              className="inProgress-instruction"
+            >
+              { mealsID.strInstructions }
+            </p>
           </div>
-          <div className="inProgress-paiCheckboxes">
-            <p className="inProgress-ingredients">Ingredients</p>
+          <div className="inProgress-checkbox">
+            <div className="inProgress-imgpai">
+              <img src={ ingredientsImg } alt="" className="inProgress-IMGinstruction"/>
+              <p className="inProgress-ingredient">Ingredients</p>
+            </div>
             {Object.entries(mealsID).filter((ele) => ele[0]
               .includes('strIngredient') && ele[1]).map((ele) => ele[1])
               .map((ele2Ingredient, indexMeals) => (
@@ -276,5 +312,9 @@ function RecipeInProgress() {
     </div>
   );
 }
+
+RecipeInProgress.propTypes = {
+  checked: PropTypes.func,
+}.isRequired;
 
 export default RecipeInProgress;

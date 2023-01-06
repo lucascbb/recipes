@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/recipes/static/css/main.163fde90.css",
-    "main.js": "/recipes/static/js/main.c56d44df.js",
+    "main.css": "/recipes/static/css/main.99b572f3.css",
+    "main.js": "/recipes/static/js/main.714aeaec.js",
     "static/media/logo-Recipes.png": "/recipes/static/media/logo-Recipes.07197ede32438316b92d.png",
     "static/media/logo-Recipes-1.png": "/recipes/static/media/logo-Recipes-1.a8a2dfad522b4ccd0ebb.png",
     "static/media/semTitulo.jpg": "/recipes/static/media/semTitulo.6905f375e30459a8a578.jpg",
@@ -48,11 +48,11 @@
     "static/media/back.png": "/recipes/static/media/back.6696169d1830e7d7eea6.png",
     "static/media/x.png": "/recipes/static/media/x.c4e35861d2606e76ed78.png",
     "index.html": "/recipes/index.html",
-    "main.163fde90.css.map": "/recipes/static/css/main.163fde90.css.map",
-    "main.c56d44df.js.map": "/recipes/static/js/main.c56d44df.js.map"
+    "main.99b572f3.css.map": "/recipes/static/css/main.99b572f3.css.map",
+    "main.714aeaec.js.map": "/recipes/static/js/main.714aeaec.js.map"
   },
   "entrypoints": [
-    "static/css/main.163fde90.css",
-    "static/js/main.c56d44df.js"
+    "static/css/main.99b572f3.css",
+    "static/js/main.714aeaec.js"
   ]
 }

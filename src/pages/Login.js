@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Login.css';
-import logoLogin from '../images/logoLogin.png';
+import logoLogin from '../images/logo-Recipes-1.png';
 
 function Login({ history }) {
   const [buttonDisable, setButtonDisable] = useState(true);

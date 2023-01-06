@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/recipes/static/css/main.6b8059ba.css",
-    "main.js": "/recipes/static/js/main.cbf51a0f.js",
+    "main.css": "/recipes/static/css/main.163fde90.css",
+    "main.js": "/recipes/static/js/main.c56d44df.js",
     "static/media/logo-Recipes.png": "/recipes/static/media/logo-Recipes.07197ede32438316b92d.png",
+    "static/media/logo-Recipes-1.png": "/recipes/static/media/logo-Recipes-1.a8a2dfad522b4ccd0ebb.png",
     "static/media/semTitulo.jpg": "/recipes/static/media/semTitulo.6905f375e30459a8a578.jpg",
     "static/media/vegan.png": "/recipes/static/media/vegan.950bcee8335a0eafecff.png",
     "static/media/veg.png": "/recipes/static/media/veg.5cc2126e22ff856d3a56.png",
@@ -41,18 +42,17 @@
     "static/media/dessert.png": "/recipes/static/media/dessert.abe19db56b6dc8913d95.png",
     "static/media/close.png": "/recipes/static/media/close.46451b91bba6c6308c8c.png",
     "static/media/blackHeartIcon.svg": "/recipes/static/media/blackHeartIcon.083cb006913d197c95857ebfa2161db7.svg",
-    "static/media/logoLogin.png": "/recipes/static/media/logoLogin.1f6579b4f675a248a68f.png",
     "static/media/drinkIcon.svg": "/recipes/static/media/drinkIcon.efc0d3c156e5da73e44a826c8d67b142.svg",
     "static/media/blackHeartIcon.png": "/recipes/static/media/blackHeartIcon.49a33fdaac365c00bfa5.png",
     "static/media/soft.png": "/recipes/static/media/soft.4460e9c2845c073f328e.png",
     "static/media/back.png": "/recipes/static/media/back.6696169d1830e7d7eea6.png",
     "static/media/x.png": "/recipes/static/media/x.c4e35861d2606e76ed78.png",
     "index.html": "/recipes/index.html",
-    "main.6b8059ba.css.map": "/recipes/static/css/main.6b8059ba.css.map",
-    "main.cbf51a0f.js.map": "/recipes/static/js/main.cbf51a0f.js.map"
+    "main.163fde90.css.map": "/recipes/static/css/main.163fde90.css.map",
+    "main.c56d44df.js.map": "/recipes/static/js/main.c56d44df.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b8059ba.css",
-    "static/js/main.cbf51a0f.js"
+    "static/css/main.163fde90.css",
+    "static/js/main.c56d44df.js"
   ]
 }

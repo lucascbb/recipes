@@ -8,7 +8,6 @@
 
 }
 
-
 .HeaderPrincipalDiv {
   align-items: center;
   display: flex;
@@ -31,7 +30,7 @@
 }
 
 .HeaderIcon {
-  width: 50px;
+  width: 90px;
 }
 
 .HeaderTitle {

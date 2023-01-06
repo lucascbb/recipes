@@ -22,10 +22,15 @@ function FavoriteButton() {
   const [filled, setFilled] = useState(favoriteRecipeCheck());
 
   const formateRecipeData = () => {
+    const dma = new Date().toLocaleDateString();
+    const tempo = new Date().toLocaleTimeString();
+
     if (actualRecipe.meals) {
       const recipeData = {
         id: actualRecipe.meals[0].idMeal,
         type: 'meal',
+        date: dma,
+        time: tempo,
         nationality: actualRecipe.meals[0].strArea,
         category: actualRecipe.meals[0].strCategory,
         alcoholicOrNot: (actualRecipe.meals[0]
@@ -38,6 +43,8 @@ function FavoriteButton() {
     const recipeData = {
       id: actualRecipe.drinks[0].idDrink,
       type: 'drink',
+      date: dma,
+      time: tempo,
       nationality: (actualRecipe.drinks[0].strArea ? actualRecipe.drinks[0].strArea : ''),
       category: actualRecipe.drinks[0].strCategory,
       alcoholicOrNot: actualRecipe.drinks[0].strAlcoholic,

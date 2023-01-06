@@ -5,7 +5,7 @@ import profileIcon from '../images/user.png';
 import searchIcon from '../images/search.png';
 import SearchBar from './SearchBar';
 import '../styles/Header.css';
-import headerIcon from '../styles/icons/iconeRecipesapp.png';
+import headerIcon from '../images/roxo-logo-Recipes.png';
 
 function Header({ pageName }) {
   const [searchDisplay, setSearchDisplay] = useState(false);

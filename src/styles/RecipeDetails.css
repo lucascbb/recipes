@@ -52,9 +52,13 @@
 }
 
 .details-category {
+  background: linear-gradient(90deg, #d7d7d6 0%, #afafaf 100%);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(80, 80, 80);
   font-family: Arial , Helvetica , sans-serif;
   font-weight: 900;
-  margin: 20px 0 0 30px;
+  margin: 15px 20px;
+  padding: 10px;
 }
 
 .details-recipe {
@@ -83,15 +87,17 @@
 }
 
 .details-paiIngredients {
-  background-color: #e07c5d;
+  background: linear-gradient(-60deg, #c90000cc 0%, #df6850 100%);
   border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(80, 80, 80);
   margin: 15px 20px;
   padding: 20px;
 }
 
 .details-paiInstructions {
-  background-color: #ded17c;
+  background: linear-gradient(-120deg, #f0c911 0%, #dec85b 100%);
   border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(80, 80, 80);
   margin: 15px 20px;
   padding: 20px;
 }

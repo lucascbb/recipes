@@ -66,8 +66,10 @@
 
 .inProgress-paiInstruction {
   align-items: left;
-  background-color: #ded17c;
+  /* background: linear-gradient(-120deg, #ded17c 0%, #dcd395 100%); */
+  background: linear-gradient(-120deg, #f0c911 0%, #dec85b 100%);
   border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(80, 80, 80);
   margin: 0 auto;
   margin-top: 10px;
   width: 90%;
@@ -85,15 +87,27 @@
   width: 30px;
 }
 
-.inProgress-imgpai {
+.inProgress-IMGingredients {
+  height: 40px;
+  width: 40px;
+}
+
+.inProgress-imgpai1 {
   align-items: center;
   display: flex;
-  margin: 0 10px;
-  padding: 15px 15px 0px 5px;
+  margin: 0 12px;
+  padding: 15px 0px 15px 0;
+}
+
+.inProgress-imgpai2 {
+  align-items: center;
+  display: flex;
+  margin: 0 12px;
+  padding: 5px 0px;
 }
 
 .inProgress-instruction {
-  padding: 15px;
+  padding: 0 10px 20px 15px;
 }
 
 .linkCopied {
@@ -108,27 +122,10 @@
   width: 90px;
 }
 
-.inProgress-paiCheckboxes {
-  background-color: #e07c5d;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  margin-top: 15px;
-  padding-bottom: 20px;
-}
-
-.inProgress-ingredients {
-  font-family: Arial , Helvetica , sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  text-align: center;
-}
-
 .NotaddedIngredient, .addedIngredient {
   font-family: Arial , Helvetica , sans-serif;
   font-size: 1rem;
-  margin-left: 15px;
+  padding: 0 10px 15px 15px;
 }
 
 .inprogress-input {
@@ -136,8 +133,10 @@
 }
 
 .inProgress-checkbox {
-  background-color: #e07c5d;
+  /* background: linear-gradient(-60deg, #e07c5d 0%, #f0a690 100%); */
+  background: linear-gradient(-60deg, #c90000cc 0%, #df6850 100%);
   border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(80, 80, 80);
   font-family: Arial , Helvetica , sans-serif;
   font-size: 1rem;
   margin: 0 auto;
@@ -149,6 +148,5 @@
 .inProgress-ingredient {
   font-size: 1.1rem;
   font-weight: 800;
-  margin-left: 5px;
-  padding: 10px;
+  margin: 0 0 0 5px;
 }

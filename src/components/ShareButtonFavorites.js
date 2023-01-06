@@ -5,27 +5,35 @@ import shareIcon from '../images/shareIcon.svg';
 
 function ShareButtonFavorites({ index, id, type, name }) {
   const [isCopied, setIsCopied] = useState(false);
+  const [copy, setCopy] = useState(<p className={`favorite-copy`}>Link copied!</p>);
   const onCopyButtonClick = () => {
+    setCopy(<p className={`favorite-copy`}>Link copied!</p>)
     const hostUrl = window.location.origin.toString();
     const url = `${hostUrl}/${type}/${id}`;
     Copy(url);
     setIsCopied(true);
   };
 
+  setTimeout(() => {
+    setCopy('')
+  }, 4000)
+
+
   return (
     <div>
       <button
         className={ name }
+        id='btn-favorite'
         type="button"
         data-testid={ `${index}-horizontal-share-btn` }
         onClick={ onCopyButtonClick }
         src={ shareIcon }
       >
-        <img src={ shareIcon } alt="Share button" />
+        <img src={ shareIcon } alt="Share button" className='favorite-sharebtn' />
       </button>
       {
         (isCopied)
-          ? <p>Link copied!</p>
+          ? <div className='favorite-paicopy'>{copy}</div>
           : (null)
       }
     </div>

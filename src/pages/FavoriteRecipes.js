@@ -11,7 +11,6 @@ import drinkIcon from '../images/drinkIcon.svg';
 function FavoriteRecipes() {
   const [favoritesList, setFavoritesList] = useState([]);
   const [backupFavoritesList, setBackupFavoritesList] = useState([]);
-  const [border, setBorder] = useState('5px solid black');
 
   useEffect(() => {
     const favoritesLocalStorage = JSON.parse(localStorage.getItem('favoriteRecipes'));
@@ -56,6 +55,7 @@ function FavoriteRecipes() {
     document.getElementById('meal').style.border = '5px solid white'
     document.getElementById('all').style.border = '5px solid black'
   };
+
   return (
     <div className="favorite-page">
       <Header pageName="Favorite Recipes" />
@@ -97,19 +97,33 @@ function FavoriteRecipes() {
           <p className="favorite-cate" >Drinks</p>
         </div>
       </div>
+      {favoritesList[0] ? 
+        (<div>
+          <p className="favorite-allDone">
+            Receitas Favoritadas: {favoritesList.length}
+          </p>
+        </div>)
+          : 
+        (null)
+      }
       {favoritesList.map((e, index) => (
         <div key={ e.id } className="favorite-details-container">
-          <Link to={ e.type === 'drink' ? `/drinks/${e.id}` : `/meals/${e.id}` }>
+          <Link 
+            to={ e.type === 'drink' ? `/drinks/${e.id}` : `/meals/${e.id}` } 
+            className="favorite-img"
+          >
             <img
               src={ e.image }
               alt={ e.name }
               data-testid={ `${index}-horizontal-image` }
-              width="200px"
               className="image-food-details"
             />
           </Link>
           <div className="details-container">
-            <Link to={ e.type === 'drink' ? `/drinks/${e.id}` : `/meals/${e.id}` }>
+            <Link 
+              to={ e.type === 'drink' ? `/drinks/${e.id}` : `/meals/${e.id}` }
+              className="title-painame"
+            >
               <p
                 data-testid={ `${index}-horizontal-name` }
                 className="title-name"
@@ -117,6 +131,7 @@ function FavoriteRecipes() {
                 {e.name}
               </p>
             </Link>
+            <p className="done-number">{index + 1}</p>
             {e.type === 'meal' && (
               <p
                 data-testid={ `${index}-horizontal-top-text` }
@@ -132,16 +147,24 @@ function FavoriteRecipes() {
               {e.type}
             </p>
             {e.type === 'drink' && (
-              <p data-testid={ `${index}-horizontal-top-text` }>{e.alcoholicOrNot}</p>
+              <p 
+                data-testid={ `${index}-horizontal-top-text` }
+                className="date"
+              >
+                {e.alcoholicOrNot}
+              </p>
             )}
             <p data-testid={ `${index}-horizontal-done-date` } className="date">
-              DATA QUE A RECEITA FOI FEITA
+              Data do like:
+              <br/>
+              {e.date}
+              <br/>
+              {e.time}
             </p>
             <div className="favorite-btns">
               <ShareButtonFavorites
                 index={ index }
                 id={ e.id }
-                className="btn-share"
                 type={ e.type === 'drink' ? 'drinks' : 'meals' }
               />
               <button
@@ -151,7 +174,11 @@ function FavoriteRecipes() {
                 data-testid={ `${index}-horizontal-favorite-btn` }
                 onClick={ () => { removeFavorite(e.id); } }
               >
-                <img src={ blackHeartIcon } alt="Favorite button" />
+                <img 
+                  src={ blackHeartIcon } 
+                  alt="Favorite button" 
+                  className='favorite-heartbtn' 
+                />
               </button>
             </div>
           </div>

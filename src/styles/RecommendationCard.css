@@ -1,17 +1,12 @@
 /* referenia: https://www.youtube.com/watch?v=QAD0K112tlQ&ab_channel=Ot%C3%A1vioMiranda */
 .container-recommendation {
   border: 1px solid #ccc;
-  border-radius: 5px;
-  max-width: 350px;
-  position: relative;
+  padding: 0 10px 70px 10px;
 }
 
 .container-wrapper {
-  background: #100f0f;
-  border: 0.518px solid #b1b1b1;
   border-radius: 5px;
   box-sizing: border-box;
-  margin: 0 0 80px;
   overflow-x: scroll;
 }
 
@@ -36,12 +31,17 @@
   color: black;
   font-family: Arial , Helvetica , sans-serif;
   text-align: center;
+  padding: 5px 0;
 }
 
 .details-link {
-  background-color: #f5e618;
+  align-items: center;
+  box-shadow: 0 2px 5px rgb(80, 80, 80);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #ded17c 5%, #e1d584 100%);
   border-radius: 10px;
   font-weight: 900;
-  margin: 0 10px 0 0;
+  margin: 0 15px 0 0;
   text-decoration: none;
 }

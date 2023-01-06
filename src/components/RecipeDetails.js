@@ -213,14 +213,22 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
                 {`Category: ${recipe[type][0].strAlcoholic}`}
               </p>
               <div className="details-paiIngredients">
+                <div className="details-paiingredient">
+                  <img src={ ingredientsImg } className="details-imgIngredient"/>
+                  <p className="details-ingredient">Ingredients</p>
+                </div>
                 {setAllIngredients()}
               </div>
-              <p
-                data-testid="instructions"
-                className="details-recipe"
-              >
-                {recipe[type][0].strInstructions}
-              </p>
+              <div className="details-paiInstructions">
+                <div className="details-paiingredient">
+                  <img src={ instruction } className="details-imgIngredient"/>
+                  <p className="details-ingredient">Instruction</p>
+                </div>
+                <p
+                  data-testid="instructions"
+                  className="details-instructions"
+                >{recipe[type][0].strInstructions}</p>
+              </div>
             </section>
           )}
           <section>

@@ -3,9 +3,9 @@ import React from 'react';
 function CheckBox({ ingredient, index,
   handleCheckedMain, check }) {
   return (
-    <div>
+    <div className="inprogress-pai">
       <label
-        htmlFor={ ingredient }
+        htmlFor={ `${ingredient}` }
         data-testid={ `${index}-ingredient-step` }
         className={ check ? 'addedIngredient' : 'NotaddedIngredient' }
       >

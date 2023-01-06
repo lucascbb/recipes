@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import ShareButtonFavorites from '../components/ShareButtonFavorites';
 import '../styles/DoneRecipes.css';
-import All from '../styles/icons/All.png';
-import drinks from '../styles/icons/drinks.png';
-import foods from '../styles/icons/foods.png';
+import all from '../images/allFood.png';
+import mealIcon from '../images/mealIcon.svg';
+import drinkIcon from '../images/drinkIcon.svg';
+import remove from '../images/x.png';
 
 function DoneRecipes() {
   const [recipeType, setRecipeType] = useState('');
@@ -21,147 +22,181 @@ function DoneRecipes() {
     }
   };
 
-  useEffect(() => {
+  useEffect(() => {   
     isEmpty();
     const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     switch (recipeType) {
     case 'drink':
       setActualRecipe(doneRecipes.filter((recipe) => recipe.type === 'drink'));
+      document.getElementById('drink').style.border = '5px solid black'
+      document.getElementById('meal').style.border = '5px solid white'
+      document.getElementById('all').style.border = '5px solid white'
       break;
     case 'meal':
       setActualRecipe(doneRecipes.filter((recipe) => recipe.type === 'meal'));
+      document.getElementById('drink').style.border = '5px solid white'
+      document.getElementById('meal').style.border = '5px solid black'
+      document.getElementById('all').style.border = '5px solid white'
       break;
+    case 'all':
+      setActualRecipe(doneRecipes);
+      document.getElementById('drink').style.border = '5px solid white'
+      document.getElementById('meal').style.border = '5px solid white'
+      document.getElementById('all').style.border = '5px solid black'
     default:
       setActualRecipe(doneRecipes);
       break;
     }
   }, [recipeType]);
 
+  const removeDone = (tempo) => {    
+    const recipes = JSON.parse(localStorage.getItem('doneRecipes'));
+    const remove = recipes.filter((ele) => ele.time !== tempo);
+    localStorage.setItem('doneRecipes', JSON.stringify(remove));
+    setActualRecipe(remove)
+  };
+
   return (
     <div className="body">
       <Header pageName="Done Recipes" searchingOFF />
       {!localEmpty ? (
         <div>
-          <div className="filter-Btn">
-            <button
-              className="btn-filter"
-              type="button"
-              src={ All }
-              data-testid="filter-by-all-btn"
-              onClick={ () => setRecipeType('all') }
-            >
-              <img src={ All } alt="todos" />
-            </button>
-            <button
-              className="btn-filter"
-              type="button"
-              src={ foods }
-              data-testid="filter-by-meal-btn"
-              onClick={ () => setRecipeType('meal') }
-            >
-              <img src={ foods } alt="comidas" />
-            </button>
-            <button
-              className="btn-filter"
-              src={ drinks }
-              data-testid="filter-by-drink-btn"
-              type="button"
-              onClick={ () => setRecipeType('drink') }
-            >
-              <img src={ drinks } alt="bebidas" />
-            </button>
+          <div className="category-paibtns">
+            <div className="category-paibtn">
+              <button
+                id='all'
+                type="button"
+                data-testid="filter-by-all-btn"
+                onClick={ () => setRecipeType('all') }
+                className="category-btn-favorite"
+              >
+                <img src={ all } className="allFood" />
+              </button>
+              <p className="favorite-cate" >All</p>
+            </div>
+            <div className="category-paibtn">
+              <button
+                id='meal'
+                type="button"
+                data-testid="filter-by-meal-btn"
+                onClick={ () => setRecipeType('meal') }
+                className="category-btn-favorite"
+              >
+                <img src={ mealIcon } className="all2" />
+              </button>
+              <p className="favorite-cate" >Meals</p>
+            </div>
+            <div className="category-paibtn">
+              <button
+                id='drink'
+                type="button"
+                data-testid="filter-by-drink-btn"
+                onClick={ () => setRecipeType('drink') }
+                className="category-btn-favorite"
+              >
+                <img src={ drinkIcon } className="all2" />
+              </button>
+              <p className="favorite-cate" >Drinks</p>
+            </div>
           </div>
-          <button
-            type="button"
-            data-testid="filter-by-all-btn"
-            onClick={ () => setRecipeType('') }
-          >
-            All
-          </button>
-          <button
-            type="button"
-            data-testid="filter-by-meal-btn"
-            onClick={ () => setRecipeType('meal') }
-          >
-            Meals
-          </button>
-          <button
-            data-testid="filter-by-drink-btn"
-            type="button"
-            onClick={ () => setRecipeType('drink') }
-          >
-            Drinks
-          </button>
+          {actualRecipe[0] ? 
+            (          <div>
+              <p className="favorite-allDone">Receitas Concluídas: {actualRecipe.length}</p>
+          </div>)
+          : 
+            (null)
+          }
+          {actualRecipe[0] ? 
+            (null)
+          : 
+            ((<h2 className="nothing-recipe">Nenhuma receita foi finalizada</h2>))
+          }
           {actualRecipe ? actualRecipe.map((recipe, index) => (
-            <div className="recipes" key={ index }>
-              <Link className="link" to={ `/${recipe.type}s/${recipe.id}` }>
+            <div className="done-details-container" key={ index }>
+              <Link 
+                to={ `/${recipe.type}s/${recipe.id}` }
+                className="favorite-img" 
+              >
                 <img
-                  className="image"
+                  className="image-food-details"
                   src={ recipe.image }
                   alt={ `${recipe.name} imagem` }
                   data-testid={ `${index}-horizontal-image` }
                 />
               </Link>
-              <div className="details">
-                <Link className="name-Recipe" to={ `/${recipe.type}s/${recipe.id}` }>
-                  <h2
-                    className="name"
+              <div className="details-container">
+                <Link  
+                  to={ `/${recipe.type}s/${recipe.id}` }
+                  className="title-painame"
+                >
+                  <p
                     data-testid={ `${index}-horizontal-name` }
+                    className="title-name"
                   >
                     {recipe.name}
-                  </h2>
+                  </p>
+                  
                 </Link>
+                <p className="done-number">{index + 1}</p>
                 {recipe.type === 'meal' ? (
-                  <h3
-                    className="other-details"
+                  <p
+                    className="category-and-nacionality"
                     data-testid={ `${index}-horizontal-top-text` }
                   >
                     {`${recipe.nationality} - ${recipe.category}`}
-                  </h3>)
+                  </p>)
                   : (
-                    <h3
-                      className="other-details"
+                    <p
+                      className="category-and-nacionality"
                       data-testid={ `${index}-horizontal-top-text` }
                     >
-                      {recipe.alcoholicOrNot}
-                    </h3>
+                      {` ${recipe.alcoholicOrNot} - ${recipe.category} `}
+                    </p>
                   )}
+                {/* {recipe.type === 'meal' ? (
+                    <p
+                      className="tag"
+                      data-testid={ `${index}-${recipe.tags}-horizontal-tag` }
+                    >
+                      {recipe.tags}
+                    </p>)
+                  : null } */}
                 <h2
-                  className="doneDate"
+                  className="date"
                   data-testid={ `${index}-horizontal-done-date` }
                 >
-                  Feita em :
-                  {recipe.doneDate.slice(zero, dez)}
+                  Feita em:
+                  <br/>
+                  {recipe.doneDate}
+                  <br/>
+                  {recipe.time}
                 </h2>
-                {recipe.type === 'meal' ? (
-                  <div className="tag-container">
-                    <h2
-                      className="tag"
-                      data-testid={ `${index}-${recipe.tags[0]}-horizontal-tag` }
-                    >
-                      {recipe.tags[0]}
-                    </h2>
-                    <h2
-                      className="tag"
-                      data-testid={ `${index}-${recipe.tags[1]}-horizontal-tag` }
-                    >
-                      {recipe.tags[1]}
-                    </h2>
-                  </div>)
-                  : null }
+                <div className="favorite-btns">
+                  <ShareButtonFavorites
+                    name="share-Btn"
+                    type={ `${recipe.type}s` }
+                    id={ recipe.id }
+                    index={ index }
+                  />
+                  <button
+                    type="button"
+                    id={ recipe.id }
+                    className="btn-favorite"
+                    data-testid={ `${index}-horizontal-favorite-btn` }
+                    onClick={ () => { removeDone(recipe.time) }}
+                  >
+                    <img 
+                      src={ remove } 
+                      alt="Favorite button" 
+                      className='favorite-heartbtn' 
+                    />
+                  </button>
+                </div>
               </div>
-              <ShareButtonFavorites
-                name="share-Btn"
-                type={ `${recipe.type}s` }
-                id={ recipe.id }
-                index={ index }
-              />
             </div>
           )) : null}
-
         </div>
-      ) : <h2>Nenhuma receita foi finalizada</h2>}
-
+      ) : null}
     </div>
   );
 }

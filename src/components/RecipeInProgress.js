@@ -56,6 +56,17 @@ function RecipeInProgress() {
   };
 
   useEffect(() => {
+    let ops = [];
+    if (document.getElementsByClassName('paiCheckbox')[0]) {
+      for (let i = 0; i < document.getElementsByClassName('paiCheckbox').length; i++) {
+        ops.push(document.getElementsByClassName('inprogress-pai')[i].children[0].innerText)
+        const igual = ops.filter((ele) => ele === document.getElementsByClassName('inprogress-pai')[i].children[0].innerText)
+        if (igual.length > 1) {
+          setNumberCheckbox(document.getElementsByClassName('paiCheckbox').length - 1)
+        }
+      }
+    }
+
     if (listOfIngredients.length > 0 && numberCheckbox > 0 
       && numberCheckbox === listOfIngredients.length) {
       setFinishBTN(false)
@@ -107,7 +118,7 @@ function RecipeInProgress() {
             .includes('strIngredient') && ele[1]).map((ele) => ele[1]).length);
           if (inProgressRecipes.meals[id]) {
             setListOfIngredients(inProgressRecipes.meals[id]);
-          } 
+          }
         }); saveMeals();
     } else {
       fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
@@ -125,6 +136,8 @@ function RecipeInProgress() {
   }, []);
 
   const handleFinish = () => {
+    const dma = new Date().toLocaleDateString();
+    const tempo = new Date().toLocaleTimeString();
     const doneRecipesLocal = JSON.parse(localStorage.getItem('doneRecipes'));
     const result = location.pathname.includes('meals');
     const recipesFood = [...doneRecipesLocal, {
@@ -133,16 +146,17 @@ function RecipeInProgress() {
       name: result ? mealsID.strMeal : drinksID.strDrink,
       category: result ? mealsID.strCategory : drinksID.strCategory,
       image: result ? mealsID.strMealThumb : drinksID.strDrinkThumb,
-      tags: result ? mealsID.strTags.split(',') : [],
+      tags: result ? mealsID.strTags : [],
       alcoholicOrNot: result ? '' : drinksID.strAlcoholic,
       type: result ? 'meal' : 'drink',
-      doneDate: new Date().toISOString(),
+      doneDate: dma,
+      time: tempo,
     }];
     localStorage.setItem('doneRecipes', JSON.stringify(recipesFood));
     history.push('/done-recipes');
   };
 
-  console.log(mealsID)
+
   return (
     <div>
       {drinksID ? (
@@ -187,7 +201,7 @@ function RecipeInProgress() {
             { `Category: ${drinksID.strCategory}` }
           </p>
           <div className="inProgress-paiInstruction">
-            <div className="inProgress-imgpai">
+            <div className="inProgress-imgpai1">
               <img src={ instruction } alt="" className="inProgress-IMGinstruction"/>
               <p className="inProgress-instructionTitle">Instruction</p>
             </div>
@@ -199,14 +213,14 @@ function RecipeInProgress() {
             </p>
           </div>
           <div className="inProgress-checkbox">
-            <div className="inProgress-imgpai">
-              <img src={ ingredientsImg } alt="" className="inProgress-IMGinstruction"/>
+            <div className="inProgress-imgpai2">
+              <img src={ ingredientsImg } alt="" className="inProgress-IMGingredients" />
               <p className="inProgress-ingredient">Ingredients</p>
             </div>
             {Object.entries(drinksID).filter((ele) => ele[0]
               .includes('strIngredient') && ele[1]).map((ele) => ele[1])
               .map((ele2Ingredient, indexDrinks) => (
-                <div key={ indexDrinks }>
+                <div key={ indexDrinks } className="paiCheckbox" >
                   <CheckBox
                     ingredient={ ele2Ingredient }
                     index={ indexDrinks }
@@ -264,7 +278,7 @@ function RecipeInProgress() {
             { `Category: ${mealsID.strCategory}` }
           </p>
           <div className="inProgress-paiInstruction">
-            <div className="inProgress-imgpai">
+            <div className="inProgress-imgpai1">
               <img src={ instruction } alt="" className="inProgress-IMGinstruction"/>
               <p className="inProgress-instructionTitle">Instruction</p>
             </div>
@@ -276,14 +290,14 @@ function RecipeInProgress() {
             </p>
           </div>
           <div className="inProgress-checkbox">
-            <div className="inProgress-imgpai">
+            <div className="inProgress-imgpai2">
               <img src={ ingredientsImg } alt="" className="inProgress-IMGinstruction"/>
               <p className="inProgress-ingredient">Ingredients</p>
             </div>
             {Object.entries(mealsID).filter((ele) => ele[0]
               .includes('strIngredient') && ele[1]).map((ele) => ele[1])
               .map((ele2Ingredient, indexMeals) => (
-                <div key={ indexMeals }>
+                <div key={ indexMeals } className="paiCheckbox">
                   <CheckBox
                     ingredient={ ele2Ingredient }
                     index={ indexMeals }

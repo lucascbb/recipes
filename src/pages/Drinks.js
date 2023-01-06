@@ -92,7 +92,6 @@ class Drinks extends React.Component {
   drinksRender = () => {
     const { categoriesDrink } = this.state;
     const { drinkState } = this.props;
-
     return (
       <section>
         <Header pageName="Drinks" />
@@ -113,7 +112,6 @@ class Drinks extends React.Component {
               <button
                 type="button"
                 className="drinks-btnCategory"
-                // id={ ele.strCategory }
                 onClick={ this.categorySelected }
                 data-testid={ `${ele.strCategory}-category-filter` }
               >

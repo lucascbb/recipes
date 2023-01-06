@@ -99,7 +99,6 @@ class Meals extends React.Component {
         <div className="meals-divBtnPai">
           <div className="meals-categoryALL">
             <button
-              aria-label="categoryBTN"
               type="button"
               className="meals-btnCategory"
               onClick={ () => { this.componentDidMount(); } }
@@ -112,10 +111,8 @@ class Meals extends React.Component {
           {categoriesMeals.map((ele, index2) => (
             <div key={ index2 } className="meals-categoryALL">
               <button
-                aria-label="categoryBTN"
                 type="button"
                 className="meals-btnCategory"
-                id={ ele.strCategory }
                 onClick={ this.categorySelected }
                 data-testid={ `${ele.strCategory}-category-filter` }
               >

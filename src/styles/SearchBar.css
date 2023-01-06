@@ -1,73 +1,181 @@
-:root {
+@media (min-width: 300px) and (max-width: 500px) {
+  :root {
 
-  --color-red: #f50043;
+    --color-red: #f50043;
 
-  --color-yellow: #f5e618;
+    --color-yellow: #f5e618;
 
-  --color-blue: #18bff5;
+    --color-blue: #18bff5;
 
+  }
+
+  .searchBar-principalDiv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 85%;
+  }
+
+  .searchBar-SecondDiv {
+    align-items: center;
+    background: linear-gradient(to bottom, #f5e618 5%, #dacc14 100%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.452);
+    display: flex;
+    flex-direction: column;
+    margin-top: -2px;
+    padding: 7px;
+  }
+
+  .searchBar-Input {
+    border: 2px solid #f5e618;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.452);
+    font-size: 1.2em;
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  .searchBar-radiosDiv {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0 0 5px;
+  }
+
+  .searchBar-RadiosInputLabel {
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 1em;
+    margin-bottom: 2px;
+    padding: 8px;
+  }
+
+  .searchBar-searchBTN {
+    background: linear-gradient(to bottom, #f50043 5%, #a32144 100%);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    height: 35px;
+    letter-spacing: 1px;
+    padding: 10px 0 32px;
+    width: 95%;
+  }
+
+  .searchBar-searchBTN:hover {
+    cursor: pointer;
+  }
+
+  .searchBar-RadiosInput {
+    margin-right: 5px;
+  }
+
+  .profile-paix {
+    all: unset;
+    position: absolute;
+    margin: -15px;
+    top: 150px;
+    right: 40px;
+  }
+  
+  .profile-x {
+    padding: 2px;
+    width: 20px;
+  }
 }
 
-.searchBar-principalDiv {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  width: 85%;
-}
+@media (min-width: 501px) and (max-width: 2500px) {
+  :root {
 
-.searchBar-SecondDiv {
-  align-items: center;
-  background: linear-gradient(to bottom, #f5e618 5%, #dacc14 100%);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.452);
-  display: flex;
-  flex-direction: column;
-  margin-top: -2px;
-  padding: 7px;
-}
+    --color-red: #f50043;
 
-.searchBar-Input {
-  border: 2px solid #f5e618;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.452);
-  font-size: 1.2em;
-  height: 40px;
-  padding: 0 10px;
-}
+    --color-yellow: #f5e618;
 
-.searchBar-radiosDiv {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 0 0 5px;
-}
+    --color-blue: #18bff5;
 
-.searchBar-RadiosInputLabel {
-  font-family: Arial , Helvetica , sans-serif;
-  font-size: 1em;
-  margin-bottom: 2px;
-  padding: 8px;
-}
+  }
 
-.searchBar-searchBTN {
-  background: linear-gradient(to bottom, #f50043 5%, #a32144 100%);
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 20px;
-  font-weight: 600;
-  height: 35px;
-  letter-spacing: 1px;
-  padding: 10px 0 32px;
-  width: 95%;
-}
+  .searchBar-principalDiv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 85%;
+  }
 
-.searchBar-searchBTN:hover {
-  cursor: pointer;
-}
+  .searchBar-SecondDiv {
+    align-items: center;
+    background: linear-gradient(to bottom, #f5e618 5%, #dacc14 100%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.452);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: -2px;
+    padding: 7px;
+    width: 410px;
+  }
 
-.searchBar-RadiosInput {
-  margin-right: 5px;
+  .searchBar-Input {
+    border: 2px solid #f5e618;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.452);
+    font-size: 1.2em;
+    height: 40px;
+    margin: auto;
+    padding: 0 10px;
+    width: 400px;
+  }
+
+  .searchBar-radiosDiv {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0 0 5px;
+  }
+
+  .searchBar-RadiosInputLabel {
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 1em;
+    margin-bottom: 2px;
+    padding: 8px;
+  }
+
+  .searchBar-searchBTN {
+    background: linear-gradient(to bottom, #f50043 5%, #a32144 100%);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    height: 35px;
+    letter-spacing: 1px;
+    padding: 10px 0 32px;
+    width: 300px;
+  }
+
+  .searchBar-searchBTN:hover {
+    cursor: pointer;
+  }
+
+  .searchBar-RadiosInput {
+    margin-right: 5px;
+  }
+
+  .profile-paix {
+    all: unset;
+    position: relative;
+    top: -155px;
+    right: -210px;
+    margin: -15px;
+  }
+  
+  .profile-x {
+    padding: 2px;
+    width: 20px;
+  }
 }

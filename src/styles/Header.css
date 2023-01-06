@@ -17,20 +17,37 @@
 .HeaderSecondDiv {
   align-items: center;
   background-color: var(--color-red);
+  background: linear-gradient(-60deg, #c90000cc 0%, #d60808d6 100%);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 50px;
   padding: 14px 0;
   width: 100%;
 }
 
+.profile-paix {
+  all: unset;
+  position: relative;
+  top: -155px;
+  right: -150px;
+  margin: -15px;
+}
+
+.profile-x {
+  border-radius: 50%;
+  padding: 2px;
+  width: 20px;
+}
+
 .HeaderButtonsDiv {
   align-items: center;
   display: flex;
+  margin: 0 20px 0 0px;
 }
 
 .HeaderIcon {
-  width: 90px;
+  margin: 15px 0 0 0px;
+  width: 130px;
 }
 
 .HeaderTitle {

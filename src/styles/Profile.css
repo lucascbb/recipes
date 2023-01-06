@@ -1,6 +1,6 @@
 .email-paititle {
   align-items: center;
-  background: #f50043;
+  background: linear-gradient(-60deg, #c90000cc 0%, #d60808d6 100%);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
 
 .button-profile {
   align-items: center;
-  background: linear-gradient(to bottom, #f50043 5%, #c40135 100%);
+  background: linear-gradient(-60deg, #c90000cc 0%, #d60808d6 100%);
   border-radius: 8px;
   box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.361);
   color: white;

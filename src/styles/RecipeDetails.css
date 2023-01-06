@@ -108,14 +108,30 @@
 }
 
 .details-start {
-  background-color: #e07c5d;
+  /* background-color: #e07c5d;
   border-radius: 10px;
   font-family: Arial , Helvetica , sans-serif;
   font-size: 15px;
   font-weight: 900;
   margin: 10px;
   padding: 15px 20px;
-  width: 80%;
+  width: 80%; */
+  background: linear-gradient(to bottom, #f0c911 5%, #f2ab1e 100%);
+  background-color: #f0c911;
+  border: 1px solid #e65f44;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgb(80, 80, 80);  
+  color: #c92200;
+  cursor: pointer;
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  height: 45px;
+  margin: 20px 0;
+  padding: 10px 24px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #ded17c;
+  width: 90%;
 }
 
 .details-paiStart {

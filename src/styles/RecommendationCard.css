@@ -1,7 +1,7 @@
 /* referenia: https://www.youtube.com/watch?v=QAD0K112tlQ&ab_channel=Ot%C3%A1vioMiranda */
 .container-recommendation {
   border: 1px solid #ccc;
-  padding: 0 10px 70px 10px;
+  padding: 0 10px 80px 10px;
 }
 
 .container-wrapper {
@@ -39,7 +39,7 @@
   box-shadow: 0 2px 5px rgb(80, 80, 80);
   display: flex;
   flex-direction: column;
-  background: linear-gradient(45deg, #ded17c 5%, #e1d584 100%);
+  background: linear-gradient(-60deg, #c90000cc 0%, #df6850 100%); 
   border-radius: 10px;
   font-weight: 900;
   margin: 0 15px 0 0;

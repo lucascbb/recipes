@@ -5,7 +5,8 @@ import profileIcon from '../images/user.png';
 import searchIcon from '../images/search.png';
 import SearchBar from './SearchBar';
 import '../styles/Header.css';
-import headerIcon from '../images/roxo-logo-Recipes.png';
+import headerIcon from '../images/logo-Recipes.png';
+import xremove from '../images/close.png';
 
 function Header({ pageName }) {
   const [searchDisplay, setSearchDisplay] = useState(false);
@@ -26,14 +27,13 @@ function Header({ pageName }) {
             <img src={ headerIcon } alt="ícone bandeja de comida" className="HeaderIcon" />
           </button>
         </div>
-
         <div className="Header-title">
           <button
             type="button"
             className="HeaderButtonTitle"
             onClick={ () => { history.push('/meals'); } }
           >
-            <h1 className="HeaderTitle" >Recipes App</h1>
+            {/* <h1 className="HeaderTitle" >Recipes App</h1> */}
           </button>
         </div>
         {history.location.pathname !== '/profile' ? 
@@ -77,6 +77,21 @@ function Header({ pageName }) {
         {pageName}
       </h1>
       {searchDisplay && <SearchBar />}
+      {searchDisplay && 
+      <button
+        type="button"
+        className="profile-paix"
+        onClick={ () => {
+        setSearchDisplay(!searchDisplay);
+        } }
+      >
+        <img
+          className="profile-x"
+          src={ xremove }
+          data-testid="profile-top-btn"
+          alt="Ícone de Perfil"
+        />
+      </button>}
     </div>
   );
 }

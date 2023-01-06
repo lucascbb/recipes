@@ -12,8 +12,6 @@ function DoneRecipes() {
   const [recipeType, setRecipeType] = useState('');
   const [actualRecipe, setActualRecipe] = useState('');
   const [localEmpty, setLocalEmpty] = useState(true);
-  const zero = 0;
-  const dez = 10;
 
   const isEmpty = () => {
     const recipes = localStorage.getItem('doneRecipes');
@@ -43,6 +41,7 @@ function DoneRecipes() {
       document.getElementById('drink').style.border = '5px solid white'
       document.getElementById('meal').style.border = '5px solid white'
       document.getElementById('all').style.border = '5px solid black'
+      break;
     default:
       setActualRecipe(doneRecipes);
       break;

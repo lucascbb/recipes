@@ -36,31 +36,35 @@ function RecommendationCard() {
           {type === 'drinks' ? (
             <section className="gallery">
               {data.map((element, i) => (
-                <Link
-                  className="details-link"
-                  data-testid={ `${i}-recommendation-card` }
-                  key={ element.idDrink }
-                  to={ `/recipes/drinks/${element.idDrink}` }
-                  onClick={ () => window.location.replace(`/recipes/drinks/${element.idDrink}`) }
-                >
+                <button onClick={ () => window.location.replace(`/recipes/drinks/${element.idDrink}`) }>
+                {/* // <Link */}
+                {/* //   className="details-link"
+                //   data-testid={ `${i}-recommendation-card` }
+                //   key={ element.idDrink }
+                //   to={ `/recipes/drinks/${element.idDrink}` }
+                //   onClick={ () => window.location.replace(`/recipes/drinks/${element.idDrink}`) }
+                // > */}
                   <img src={ element.strDrinkThumb } alt={ element.strCategory } />
                   <p data-testid={ `${i}-recommendation-title` }>{element.strDrink}</p>
-                </Link>
+                {/* </Link> */}
+                </button>
               ))}
             </section>
           ) : (
             <section className="gallery">
               {data.map((element, i) => (
-                <Link
-                  className="details-link"
-                  data-testid={ `${i}-recommendation-card` }
-                  key={ element.idMeal }
-                  to={ `/recipes/meals/${element.idMeal}` }
-                  onClick={ () => window.location.replace(`/recipes/meals/${element.idMeal}`) }
-                >
+                <button onClick={ () => window.location.replace(`/recipes/meals/${element.idMeal}`)  }>
+                {/* <Link
+                //   className="details-link"
+                //   data-testid={ `${i}-recommendation-card` }
+                //   key={ element.idMeal }
+                //   to={ `/recipes/meals/${element.idMeal}` }
+                //   onClick={ () => window.location.replace(`/recipes/meals/${element.idMeal}`) }
+                // > */}
                   <img src={ element.strMealThumb } alt={ element.strCategory } />
                   <p data-testid={ `${i}-recommendation-title` }>{element.strMeal}</p>
-                </Link>
+                </button>
+                // </Link>
               ))}
             </section>)}
         </div>

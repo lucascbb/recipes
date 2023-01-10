@@ -8,6 +8,11 @@ function RecommendationCard() {
   const [data, setData] = useState([]);
   const type = Object.keys(recommendation).toString();
 
+  console.log(data);
+  console.log(window.location);
+  console.log(recommendation);
+  console.log(type);
+
   useEffect(() => {
     const key = 6;
     if (type) {

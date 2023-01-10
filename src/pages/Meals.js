@@ -93,6 +93,8 @@ class Meals extends React.Component {
   mealsRender = () => {
     const { categoriesMeals } = this.state;
     const { mealsState } = this.props;
+    console.log(mealsState);
+
     return (
       <section>
         <Header pageName="Meals" />

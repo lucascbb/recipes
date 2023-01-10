@@ -165,7 +165,7 @@ class Meals extends React.Component {
         </div>
         <div className="meals-divPai">
           {mealsState.map((ele, index) => (
-            <Link to={ `/meals/${ele.idMeal}` } key={ index } className="meals-link">
+            <Link to={ `/recipes/meals/${ele.idMeal}` } key={ index } className="meals-link">
               <div
                 key={ index }
                 data-testid={ `${index}-recipe-card` }

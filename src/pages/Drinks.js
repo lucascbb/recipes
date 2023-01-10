@@ -80,11 +80,9 @@ class Drinks extends React.Component {
       target.parentNode.style.border = '';
       document.getElementsByClassName('all')[0].parentNode.style.background = color;
       document.getElementsByClassName('all')[0].parentNode.style.border = border;
-      console.log('primeiro if');
     } else if (target.id !== selectedCategory) {
       target.parentNode.style.background = color;
       target.parentNode.style.border = border;
-      console.log('segundo if');
       if (p) { p.parentNode.style.background = ''; p.parentNode.style.border = ''; }
     }
   };
@@ -201,7 +199,7 @@ class Drinks extends React.Component {
         </div>
         <div className="drinks-divPai">
           {drinkState.map((ele, index) => (
-            <Link to={ `/drinks/${ele.idDrink}` } key={ index } className="drinks-link">
+            <Link to={ `/recipes/drinks/${ele.idDrink}` } key={ index } className="drinks-link">
               <div
                 className="drinks-Card"
                 key={ index }

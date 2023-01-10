@@ -9,51 +9,57 @@ import mealIcon from '../images/mealIcon.svg';
 import drinkIcon from '../images/drinkIcon.svg';
 
 function FavoriteRecipes() {
-  const [favoritesList, setFavoritesList] = useState([]);
-  const [backupFavoritesList, setBackupFavoritesList] = useState([]);
+  const [typeRecipes, setTypeRecipes] = useState('');
+  const [favoritesList, setFavoritesList] = useState(JSON.parse(localStorage.getItem('favoriteRecipes')));
 
   useEffect(() => {
-    const favoritesLocalStorage = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    if (!favoritesLocalStorage) {
-      localStorage.setItem('favoriteRecipes', JSON.stringify([]));
-      setFavoritesList([]);
-      setBackupFavoritesList([]);
-    } else {
-      setFavoritesList(favoritesLocalStorage);
-      setBackupFavoritesList(favoritesLocalStorage);
+    const local = JSON.parse(localStorage.getItem('favoriteRecipes'));
+
+    setFavoritesList(local); 
+    switch (typeRecipes) {
+    case 'drinks':
+      document.getElementById('drink').style.border = '5px solid black'
+      document.getElementById('meal').style.border = '5px solid white'
+      document.getElementById('all').style.border = '5px solid white'
+
+      if (favoritesList) { setFavoritesList(local.filter((recipe) => recipe.type === 'drink')); }
+      break;
+    case 'meals':
+      document.getElementById('drink').style.border = '5px solid white'
+      document.getElementById('meal').style.border = '5px solid black'
+      document.getElementById('all').style.border = '5px solid white'
+
+      if (favoritesList) { setFavoritesList(local.filter((recipe) => recipe.type === 'meal')); }
+      break;
+    case 'all':
+      document.getElementById('drink').style.border = '5px solid white'
+      document.getElementById('meal').style.border = '5px solid white'
+      document.getElementById('all').style.border = '5px solid black'
+
+      if (favoritesList) { setFavoritesList(local); }
+      break;
+    default:
+      if (favoritesList) { setFavoritesList(local); }
+      break;
     }
-    document.getElementById('all').style.border = '5px solid black';
-  }, []);
+  }, [typeRecipes]);
 
-  const removeFavorite = (id) => {
-    console.log('REMOVEU', id);
-    const idsList = favoritesList.map((e) => (e.id));
-    const indexToRemove = idsList.indexOf(id);
-    const newFavoritesList = [...favoritesList];
-    newFavoritesList.splice(indexToRemove, 1);
-    setFavoritesList(newFavoritesList);
-    localStorage.setItem('favoriteRecipes', JSON.stringify(newFavoritesList));
+
+  const removeFavorite = (tempo) => {
+    const localR = JSON.parse(localStorage.getItem('favoriteRecipes'))
+    const remove = localR.filter((e) => e.time !== tempo);
+    localStorage.setItem('favoriteRecipes', JSON.stringify(remove));
+    setFavoritesList(remove)
+    if (typeRecipes === 'drinks') { setFavoritesList(remove.filter((recipe) => recipe.type === 'drink')); }
+    if (typeRecipes === 'meals') { setFavoritesList(remove.filter((recipe) => recipe.type === 'meal')); }
   };
 
-  const filterMeals = () => {
-    const filtredArray = backupFavoritesList.filter((e) => e.type === 'meal');
-    setFavoritesList(filtredArray);
-    document.getElementById('drink').style.border = '5px solid white'
-    document.getElementById('meal').style.border = '5px solid black'
-    document.getElementById('all').style.border = '5px solid white'
-  };
-  const filterDrinks = () => {
-    const filtredArray = backupFavoritesList.filter((e) => e.type === 'drink');
-    setFavoritesList(filtredArray);
-    document.getElementById('drink').style.border = '5px solid black'
-    document.getElementById('meal').style.border = '5px solid white'
-    document.getElementById('all').style.border = '5px solid white'
-  };
-  const filterAll = () => {
-    setFavoritesList(backupFavoritesList);
-    document.getElementById('drink').style.border = '5px solid white'
-    document.getElementById('meal').style.border = '5px solid white'
-    document.getElementById('all').style.border = '5px solid black'
+  const seila = () => {
+    if (favoritesList.length === 0) { 
+      return (
+        <h2 className="nothing-recipe">Nenhuma receita foi finalizada</h2>
+      )
+    }
   };
 
   return (
@@ -65,7 +71,7 @@ function FavoriteRecipes() {
             id='all'
             type="button"
             data-testid="filter-by-all-btn"
-            onClick={ filterAll }
+            onClick={ () => setTypeRecipes('all') }
             className="category-btn-favorite"
           >
             <img src={ all } className="allFood" />
@@ -77,7 +83,7 @@ function FavoriteRecipes() {
             id='meal'
             type="button"
             data-testid="filter-by-meal-btn"
-            onClick={ filterMeals }
+            onClick={ () => setTypeRecipes('meals') }
             className="category-btn-favorite"
           >
             <img src={ mealIcon } className="all2" />
@@ -89,7 +95,7 @@ function FavoriteRecipes() {
             id='drink'
             type="button"
             data-testid="filter-by-drink-btn"
-            onClick={ filterDrinks }
+            onClick={ () => setTypeRecipes('drinks') }
             className="category-btn-favorite"
           >
             <img src={ drinkIcon } className="all2" />
@@ -97,19 +103,21 @@ function FavoriteRecipes() {
           <p className="favorite-cate" >Drinks</p>
         </div>
       </div>
-      {favoritesList[0] ? 
-        (<div>
+      {favoritesList ? 
+        <div>
           <p className="favorite-allDone">
             Receitas Favoritadas: {favoritesList.length}
           </p>
-        </div>)
+        </div>
           : 
-        (null)
+        <h2 className="nothing-recipe">Nenhuma receita foi finalizada</h2>
       }
-      {favoritesList.map((e, index) => (
+      {favoritesList ? seila() : (null) }
+      {favoritesList ?
+      favoritesList.map((e, index) => (
         <div key={ e.id } className="favorite-details-container">
           <Link 
-            to={ e.type === 'drink' ? `/drinks/${e.id}` : `/meals/${e.id}` } 
+            to={ e.type === 'drink' ? `/recipes/drinks/${e.id}` : `/recipes/meals/${e.id}` } 
             className="favorite-img"
           >
             <img
@@ -121,7 +129,7 @@ function FavoriteRecipes() {
           </Link>
           <div className="details-container">
             <Link 
-              to={ e.type === 'drink' ? `/drinks/${e.id}` : `/meals/${e.id}` }
+              to={ e.type === 'drink' ? `/recipes/drinks/${e.id}` : `/recipes/meals/${e.id}` }
               className="title-painame"
             >
               <p
@@ -172,7 +180,7 @@ function FavoriteRecipes() {
                 type="button"
                 className="btn-favorite"
                 data-testid={ `${index}-horizontal-favorite-btn` }
-                onClick={ () => { removeFavorite(e.id); } }
+                onClick={ () => { removeFavorite(e.time); } }
               >
                 <img 
                   src={ blackHeartIcon } 
@@ -183,7 +191,9 @@ function FavoriteRecipes() {
             </div>
           </div>
         </div>
-      ))}
+      ))
+    : (null)
+    }
     </div>
   );
 }

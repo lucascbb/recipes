@@ -15,7 +15,7 @@ function Footer() {
             type="button"
             src={ drinkIcon }
             data-testid="drinks-bottom-btn"
-            onClick={ () => { history.push('/drinks'); } }
+            onClick={ () => { history.push('/recipes/drinks'); } }
           >
             <img
               className="footer-img"
@@ -30,7 +30,7 @@ function Footer() {
             className="footer-buttons2"
             src={ mealIcon }
             data-testid="meals-bottom-btn"
-            onClick={ () => { history.push('/meals'); } }
+            onClick={ () => { history.push('/recipes/meals'); } }
           >
             <img
               className="footer-img"

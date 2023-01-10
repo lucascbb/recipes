@@ -116,10 +116,10 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
                 className="details-backbtn"
                 type="button"
                 onClick={ () => {
-                  if (pathname.includes('drinks')) {
-                    history.push('/drinks');
+                  if (pathname.includes('/recipes/drinks')) {
+                    history.push('/recipes/drinks');
                   } else {
-                    history.push('/meals');
+                    history.push('/recipes/meals');
                   }
                 } }
               >

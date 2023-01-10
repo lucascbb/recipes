@@ -153,7 +153,7 @@ function RecipeInProgress() {
       time: tempo,
     }];
     localStorage.setItem('doneRecipes', JSON.stringify(recipesFood));
-    history.push('/done-recipes');
+    history.push('/recipes/done-recipes');
   };
 
 
@@ -167,9 +167,9 @@ function RecipeInProgress() {
               type="button"
               onClick={ () => {
                 if (location.pathname.includes('drinks')) {
-                  history.push('/drinks');
+                  history.push('/recipes/drinks');
                 } else {
-                  history.push('/meals');
+                  history.push('/recipes/meals');
                 }
               } }
             >
@@ -235,7 +235,7 @@ function RecipeInProgress() {
           </div>
         </div>
       ) : null}
-      {/* metade//////////////////////////////////////////////////////////// */}
+
       {mealsID ? (
         <div>
           <div className="inProgress-btns">
@@ -244,9 +244,9 @@ function RecipeInProgress() {
               type="button"
               onClick={ () => {
                 if (location.pathname.includes('drinks')) {
-                  history.push('/drinks');
+                  history.push('/recipes/drinks');
                 } else {
-                  history.push('/meals');
+                  history.push('/recipes/meals');
                 }
               } }
             >

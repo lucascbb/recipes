@@ -12,15 +12,15 @@ function App() {
   return (
     <Switch>
       <Route exact path="/recipes" component={ Login } />
-      <Route exact path="/meals" component={ Recipes } />
-      <Route exact path="/drinks" component={ Recipes } />
-      <Route exact path="/meals/:id" component={ RecipeDetails } />
-      <Route exact path="/drinks/:id" component={ RecipeDetails } />
-      <Route exact path="/meals/:id/in-progress" component={ RecipeInProgress } />
-      <Route exact path="/drinks/:id/in-progress" component={ RecipeInProgress } />
-      <Route path="/profile" component={ Profile } />
-      <Route path="/done-recipes" component={ DoneRecipes } />
-      <Route path="/favorite-recipes" component={ FavoriteRecipes } />
+      <Route exact path="/recipes/meals" component={ Recipes } />
+      <Route exact path="/recipes/drinks" component={ Recipes } />
+      <Route exact path="/recipes/meals/:id" component={ RecipeDetails } />
+      <Route exact path="/recipes/drinks/:id" component={ RecipeDetails } />
+      <Route exact path="/recipes/meals/:id/in-progress" component={ RecipeInProgress } />
+      <Route exact path="/recipes/drinks/:id/in-progress" component={ RecipeInProgress } />
+      <Route path="/recipes/profile" component={ Profile } />
+      <Route path="/recipes/done-recipes" component={ DoneRecipes } />
+      <Route path="/recipes/favorite-recipes" component={ FavoriteRecipes } />
     </Switch>
   );
 }

@@ -9,7 +9,7 @@ import profileIcon from '../images/user-white.png';
 import '../styles/Profile.css';
 
 function Profile({ history }) {
-  const [email, setEmail] = useState('teste@teste.com');
+  const [email, setEmail] = useState('user@email.com');
 
   const getLocalStorageEmail = () => {
     const emailLocalStorage = JSON.parse(localStorage.getItem('user'));
@@ -46,7 +46,7 @@ function Profile({ history }) {
           className="button-profile"
           type="button"
           src="aas"
-          onClick={ () => history.push('/done-recipes') }
+          onClick={ () => history.push('/recipes/done-recipes') }
         >
           <img
             src={ DoneRecipesIcon }
@@ -59,7 +59,7 @@ function Profile({ history }) {
           data-testid="profile-favorite-btn"
           className="button-profile"
           type="button"
-          onClick={ () => history.push('/favorite-recipes') }
+          onClick={ () => history.push('/recipes/favorite-recipes') }
         >
           <img
             src={ favoriteIcon }

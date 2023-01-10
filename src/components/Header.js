@@ -16,29 +16,22 @@ function Header({ pageName }) {
     <div className="HeaderPrincipalDiv">
       <div 
         className="HeaderSecondDiv" 
-        style={history.location.pathname === '/profile' ? {justifyContent : 'center'} : null}
+        style={history.location.pathname === '/recipes/profile' ? {justifyContent : 'center'} : null}
       >
         <div className="Header-logo" >
           <button
             type="button"
             className="HeaderButtonTitle"
-            onClick={ () => { history.push('/meals'); } }
+            onClick={ () => { history.push('/recipes/meals'); } }
           >
             <img src={ headerIcon } alt="ícone bandeja de comida" className="HeaderIcon" />
           </button>
         </div>
-        <div className="Header-title">
-          <button
-            type="button"
-            className="HeaderButtonTitle"
-            onClick={ () => { history.push('/meals'); } }
-          >
-            {/* <h1 className="HeaderTitle" >Recipes App</h1> */}
-          </button>
-        </div>
-        {history.location.pathname !== '/profile' ? 
+        {history.location.pathname !== '/recipes/profile' ? 
         <div className="HeaderButtonsDiv">
           <div className="Header-btns">
+            {(history.location.pathname !== '/recipes/done-recipes') &&
+              (history.location.pathname !== '/recipes/favorite-recipes') ? (
             <button
               className="searchBTNs"
               type="button"
@@ -52,7 +45,7 @@ function Header({ pageName }) {
                 data-testid="search-top-btn"
                 alt="Ícone de Perfil de busca"
               />
-            </button>
+            </button>) : (null)}
           </div>
 
           <div>
@@ -60,7 +53,7 @@ function Header({ pageName }) {
               type="button"
               className="profileBTNs"
               onClick={ () => {
-                history.push('/profile');
+                history.push('/recipes/profile');
               } }
             >
               <img

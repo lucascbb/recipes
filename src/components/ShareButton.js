@@ -30,6 +30,7 @@ function ShareButton() {
     if (textCopied) {
       textCopied.innerHTML = '';
       textCopied.style.backgroundColor = 'transparent';
+      textCopied.style.boxShadow = 'none';
     }
   };
 

@@ -11,39 +11,30 @@ import remove from '../images/x.png';
 function DoneRecipes() {
   const [recipeType, setRecipeType] = useState('');
   const [actualRecipe, setActualRecipe] = useState('');
-  const [localEmpty, setLocalEmpty] = useState(true);
-
-  const isEmpty = () => {
-    const recipes = localStorage.getItem('doneRecipes');
-    if (recipes) {
-      setLocalEmpty(false);
-    }
-  };
 
   useEffect(() => {   
-    isEmpty();
     const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     switch (recipeType) {
     case 'drink':
-      setActualRecipe(doneRecipes.filter((recipe) => recipe.type === 'drink'));
+      if (doneRecipes) { setActualRecipe(doneRecipes.filter((recipe) => recipe.type === 'drink')); }
       document.getElementById('drink').style.border = '5px solid black'
       document.getElementById('meal').style.border = '5px solid white'
       document.getElementById('all').style.border = '5px solid white'
       break;
     case 'meal':
-      setActualRecipe(doneRecipes.filter((recipe) => recipe.type === 'meal'));
+      if (doneRecipes) { setActualRecipe(doneRecipes.filter((recipe) => recipe.type === 'meal')); }
       document.getElementById('drink').style.border = '5px solid white'
       document.getElementById('meal').style.border = '5px solid black'
       document.getElementById('all').style.border = '5px solid white'
       break;
     case 'all':
-      setActualRecipe(doneRecipes);
+      if (doneRecipes) { setActualRecipe(doneRecipes); }
       document.getElementById('drink').style.border = '5px solid white'
       document.getElementById('meal').style.border = '5px solid white'
       document.getElementById('all').style.border = '5px solid black'
       break;
     default:
-      setActualRecipe(doneRecipes);
+      if (doneRecipes) { setActualRecipe(doneRecipes); }
       break;
     }
   }, [recipeType]);
@@ -52,13 +43,14 @@ function DoneRecipes() {
     const recipes = JSON.parse(localStorage.getItem('doneRecipes'));
     const remove = recipes.filter((ele) => ele.time !== tempo);
     localStorage.setItem('doneRecipes', JSON.stringify(remove));
-    setActualRecipe(remove)
+    setActualRecipe(remove);
+    if (recipeType === 'drink') { setActualRecipe(remove.filter((recipe) => recipe.type === 'drink')); }
+    if (recipeType === 'meal') { setActualRecipe(remove.filter((recipe) => recipe.type === 'meal')); }
   };
 
   return (
     <div className="body">
       <Header pageName="Done Recipes" searchingOFF />
-      {!localEmpty ? (
         <div>
           <div className="category-paibtns">
             <div className="category-paibtn">
@@ -99,21 +91,22 @@ function DoneRecipes() {
             </div>
           </div>
           {actualRecipe[0] ? 
-            (          <div>
-              <p className="favorite-allDone">Receitas Concluídas: {actualRecipe.length}</p>
-          </div>)
-          : 
-            (null)
-          }
-          {actualRecipe[0] ? 
-            (null)
-          : 
-            ((<h2 className="nothing-recipe">Nenhuma receita foi finalizada</h2>))
+            (
+              <div>
+                <p className="favorite-allDone">Receitas Concluídas: {actualRecipe.length}</p>
+              </div>
+            ): 
+            (
+              <div>
+                <p className="favorite-allDone">Receitas Concluídas: {actualRecipe.length}</p>
+                <h2 className="nothing-recipe">Nenhuma receita foi finalizada</h2>
+              </div>
+            )
           }
           {actualRecipe ? actualRecipe.map((recipe, index) => (
             <div className="done-details-container" key={ index }>
               <Link 
-                to={ `/${recipe.type}s/${recipe.id}` }
+                to={ `/recipes/${recipe.type}s/${recipe.id}` }
                 className="favorite-img" 
               >
                 <img
@@ -125,7 +118,7 @@ function DoneRecipes() {
               </Link>
               <div className="details-container">
                 <Link  
-                  to={ `/${recipe.type}s/${recipe.id}` }
+                  to={ `/recipes/${recipe.type}s/${recipe.id}` }
                   className="title-painame"
                 >
                   <p
@@ -195,7 +188,6 @@ function DoneRecipes() {
             </div>
           )) : null}
         </div>
-      ) : null}
     </div>
   );
 }

@@ -112,9 +112,11 @@
     font-size: 16px;
     font-weight: 500;
     height: 28px;
+    margin: auto;
     text-align: center;
     overflow: hidden;
     padding: 5px 0 10px 0;
+    width: 90%;
   }
 
   .meals-link {

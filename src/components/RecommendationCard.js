@@ -30,18 +30,18 @@ function RecommendationCard() {
     }
   }, []);
 
-  const startDrink = async (id) => {
-    console.log(id);
-    // console.log(location.pathname);
-    history.push(`/recipes/drinks/${id}`);
-    document.location.reload(true);
-  };
-  const startMeal = async (id) => {
-    console.log(id);
-    // console.log(location.pathname);
-    history.push(`/recipes/meals/${id}`);
-    document.location.reload(true);
-  };
+  // const startDrink = async (id) => {
+  //   console.log(id);
+  //   // console.log(location.pathname);
+  //   history.push(`/recipes/drinks/${id}`);
+  //   document.location.reload(true);
+  // };
+  // const startMeal = async (id) => {
+  //   console.log(id);
+  //   // console.log(location.pathname);
+  //   history.push(`/recipes/meals/${id}`);
+  //   document.location.reload(true);
+  // };
 
   return (
     <div>

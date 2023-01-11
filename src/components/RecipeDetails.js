@@ -28,7 +28,7 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
   useEffect(() => {
     const getRequest = async () => {
       console.log(pathname);
-      if ((pathname === `/recipes/drinks/${id}/`) || (pathname === `/recipes/drinks/${id}`)) {
+      if ((pathname === `/recipes/drinks/${id}/`)) {
         console.log('drinks')
         const urlId = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
         const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';

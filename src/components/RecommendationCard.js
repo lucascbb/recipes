@@ -10,7 +10,7 @@ function RecommendationCard() {
   const [data, setData] = useState([]);
   const type = Object.keys(recommendation).toString();
 
-  console.log(data);
+  // console.log(data);
   // console.log(window.location);
   // console.log(recommendation);
   // console.log(type);
@@ -31,10 +31,14 @@ function RecommendationCard() {
   }, []);
 
   const startDrink = async (id) => {
+    console.log(id);
+    // console.log(location.pathname);
     history.push(`/recipes/drinks/${id}`);
     document.location.reload(true);
   };
   const startMeal = async (id) => {
+    console.log(id);
+    // console.log(location.pathname);
     history.push(`/recipes/meals/${id}`);
     document.location.reload(true);
   };
@@ -45,25 +49,35 @@ function RecommendationCard() {
       <div className="container-recommendation">
         <div className="container-wrapper">
           {type === 'drinks' ? (
-              data.map((ele, i) => (
-                <div key={ i }>
-                  <button onClick={ () => startDrink(ele.idDrink) }>
-                    <img src={ ele.strDrinkThumb } alt={ ele.strCategory } />
-                    <p data-testid={ `${i}-recommendation-title` }>{ele.strDrink}</p>
-                  </button>
-                </div>
-              ))
+            <section className="gallery">
+              {data.map((element, i) => (
+                <Link
+                  className="details-link"
+                  data-testid={ `${i}-recommendation-card` }
+                  key={ element.idDrink }
+                  to={ `/recipes/drinks/${element.idDrink}` }
+                  onClick={ () => window.location.replace(`/recipes/drinks/${element.idDrink}`) }
+                >
+                  <img src={ element.strDrinkThumb } alt={ element.strCategory } />
+                  <p data-testid={ `${i}-recommendation-title` }>{element.strDrink}</p>
+                </Link>
+              ))}
+            </section>
           ) : (
-              data.map((ele, i) => (
-                <div key={ i }>
-                  <button onClick={ () => startMeal(ele.idMeal) }>
-                    <img src={ ele.strMealThumb } alt={ ele.strCategory } />
-                    <p data-testid={ `${i}-recommendation-title` }>{ele.strMeal}</p>
-                  </button>
-                </div>
-              ))
-            )
-            }
+            <section className="gallery">
+              {data.map((element, i) => (
+                <Link
+                  className="details-link"
+                  data-testid={ `${i}-recommendation-card` }
+                  key={ element.idMeal }
+                  to={ `/recipes/meals/${element.idMeal}` }
+                  onClick={ () => window.location.replace(`/recipes/meals/${element.idMeal}`) }
+                >
+                  <img src={ element.strMealThumb } alt={ element.strCategory } />
+                  <p data-testid={ `${i}-recommendation-title` }>{element.strMeal}</p>
+                </Link>
+              ))}
+            </section>)}
         </div>
       </div>
     </div>

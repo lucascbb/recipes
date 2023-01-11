@@ -27,20 +27,23 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
 
   useEffect(() => {
     const getRequest = async () => {
-      if (pathname.includes('drinks')) {
+      console.log(pathname);
+      if ((pathname === `/recipes/drinks/${id}/`) || (pathname === `/recipes/drinks/${id}`)) {
+        console.log('drinks')
         const urlId = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
         const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
         const recipeId = await getRecipeForId(urlId, id);
         const recommendationRecipes = await getRecipes(url);
-        setRecipe(recipeId);
+        setRecipe(recipeId); console.log(recipeId);
         dispatch(receiveRecipeforId(recipeId));
         dispatch(receiveRecipes(recommendationRecipes));
       } else {
+        console.log('meals')
         const urlId = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
         const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
         const recipeId = await getRecipeForId(urlId, id);
         const recommendationRecipes = await getRecipes(url);
-        setRecipe(recipeId);
+        setRecipe(recipeId); console.log(recipeId);
         dispatch(receiveRecipeforId(recipeId));
         dispatch(receiveRecipes(recommendationRecipes));
       }
@@ -48,6 +51,8 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
     getRequest();
     setLoading(false);
   }, []);
+
+  
 
   useEffect(() => {
     if (recipe) {
@@ -175,8 +180,6 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
 
               <iframe
                 data-testid="video"
-                // width="560"
-                // height="315"
                 className="details-video"
                 src={ `${recipe[type][0].strYoutube
                   .replace('watch?v=', 'embed/')}?autoplay=1&mute=1` }

@@ -139,7 +139,7 @@ function FavoriteRecipes() {
                 {e.name}
               </p>
             </Link>
-            <p className="done-number">{index + 1}</p>
+            <p className="done-number">#{index + 1}</p>
             {e.type === 'meal' && (
               <p
                 data-testid={ `${index}-horizontal-top-text` }

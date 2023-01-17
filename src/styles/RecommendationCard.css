@@ -1,4 +1,3 @@
-/* referenia: https://www.youtube.com/watch?v=QAD0K112tlQ&ab_channel=Ot%C3%A1vioMiranda */
 .container-recommendation {
   border: 1px solid #ccc;
   padding: 0 10px 80px 10px;
@@ -7,18 +6,21 @@
 .container-wrapper {
   border-radius: 5px;
   box-sizing: border-box;
-  overflow-x: scroll;
+  overflow-x: auto;
+}
+
+.details-wrapper {
+  text-align: center;
 }
 
 .gallery {
   display: flex;
   flex-flow: row nowrap;
-  height: fit-content;
+  padding: 10px;
   letter-spacing: 0.5px;
-  min-width: 46%;
-  padding: 20px 5px;
-  position: relative;
-  top: 0;
+  margin: auto;
+  width: 65%;
+  overflow: auto;
 }
 
 .gallery img {
@@ -42,6 +44,7 @@
   background: linear-gradient(-60deg, #c90000cc 0%, #df6850 100%); 
   border-radius: 10px;
   font-weight: 900;
-  margin: 0 15px 0 0;
+  justify-content: center;
   text-decoration: none;
+  margin: 0 10px;
 }

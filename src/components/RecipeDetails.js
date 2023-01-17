@@ -16,7 +16,6 @@ import ingredientsImg from '../images/ingredients.png';
 function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [loading, setLoading] = useState(true);
   const [ingredients, setingredients] = useState();
   const [completeRecipe, setCompleteRecipe] = useState(false);
   const [progressRecipes, setProgressRecipe] = useState(false);
@@ -27,14 +26,13 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
 
   useEffect(() => {
     const getRequest = async () => {
-      console.log(pathname);
       if ((pathname === `/recipes/drinks/${id}`) || (pathname === `/recipes/drinks/${id}/`)) {
         console.log('drinks')
         const urlId = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
         const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
         const recipeId = await getRecipeForId(urlId, id);
         const recommendationRecipes = await getRecipes(url);
-        setRecipe(recipeId); console.log(recipeId);
+        setRecipe(recipeId);
         dispatch(receiveRecipeforId(recipeId));
         dispatch(receiveRecipes(recommendationRecipes));
       } else {
@@ -43,16 +41,13 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
         const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
         const recipeId = await getRecipeForId(urlId, id);
         const recommendationRecipes = await getRecipes(url);
-        setRecipe(recipeId); console.log(recipeId);
+        setRecipe(recipeId);
         dispatch(receiveRecipeforId(recipeId));
         dispatch(receiveRecipes(recommendationRecipes));
       }
     };
     getRequest();
-    setLoading(false);
   }, []);
-
-  
 
   useEffect(() => {
     if (recipe) {
@@ -110,7 +105,6 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
     history.push(`${pathname}/in-progress`);
   };
 
-  if (loading) { return <h1>Carregando...</h1>; }
   return (
     <div>
       {ingredients ? (
@@ -136,27 +130,29 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
               <ShareButton />
             </div>
           </div>
-          {!pathname.includes('drinks') ? (
+          {pathname.includes(`/recipes/meals/${id}`) ? (
             <section>
-              <img
-                src={ recipe[type][0].strMealThumb }
-                alt={ recipe[type][0].strMeal }
-                data-testid="recipe-photo"
-                className="recipeDetails-img"
-              />
+              <div className="recipeDetails-paiImg">
+                <img
+                  src={ recipe.meals[0].strMealThumb }
+                  alt={ recipe.meals[0].strMeal }
+                  data-testid="recipe-photo"
+                  className="recipeDetails-img"
+                />
+              </div>
               <div className="details-paiName">
                 <h3
                   data-testid="recipe-title"
                   className="details-name"
                 >
-                  {recipe[type][0].strMeal}
+                  {recipe.meals[0].strMeal}
                 </h3>
               </div>
               <p
                 data-testid="recipe-category"
                 className="details-category"
               >
-                {`Category: ${recipe[type][0].strCategory}`}
+                {`Category: ${recipe.meals[0].strCategory}`}
               </p>
 
               <div className="details-paiIngredients">
@@ -175,32 +171,36 @@ function RecipeDetails({ match: { params: { id } }, location: { pathname } }) {
                 <p
                   data-testid="instructions"
                   className="details-instructions"
-                >{recipe[type][0].strInstructions}</p>
+                >{recipe.meals[0].strInstructions}</p>
               </div>
-
-              <iframe
-                data-testid="video"
-                className="details-video"
-                src={ `${recipe[type][0].strYoutube
-                  .replace('watch?v=', 'embed/')}?autoplay=1&mute=1` }
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture"
-                allowFullScreen
-              />
+              {recipe.meals[0].strYoutube === "" ? null : 
+              <div className='details-paivideo'>
+                <iframe
+                  data-testid="video"
+                  className="details-video"
+                  src={ `${recipe.meals[0].strYoutube
+                    .replace('watch?v=', 'embed/')}?autoplay=1&mute=1` }
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture"
+                  allowFullScreen
+                />
+              </div>}
             </section>
           ) : (
             <section>
-              <img
-                src={ recipe[type][0].strDrinkThumb }
-                alt={ recipe[type][0].strDrink }
-                data-testid="recipe-photo"
-                className="recipeDetails-img"
-              />
+              <div className="recipeDetails-paiImg">
+                <img
+                  src={ recipe[type][0].strDrinkThumb }
+                  alt={ recipe[type][0].strDrink }
+                  data-testid="recipe-photo"
+                  className="recipeDetails-img"
+                />
+              </div>
               <div className="details-paiName">
                 <h3
                   data-testid="recipe-title"

@@ -129,7 +129,7 @@ function DoneRecipes() {
                   </p>
                   
                 </Link>
-                <p className="done-number">{index + 1}</p>
+                <p className="done-number">#{index + 1}</p>
                 {recipe.type === 'meal' ? (
                   <p
                     className="category-and-nacionality"
@@ -145,14 +145,6 @@ function DoneRecipes() {
                       {` ${recipe.alcoholicOrNot} - ${recipe.category} `}
                     </p>
                   )}
-                {/* {recipe.type === 'meal' ? (
-                    <p
-                      className="tag"
-                      data-testid={ `${index}-${recipe.tags}-horizontal-tag` }
-                    >
-                      {recipe.tags}
-                    </p>)
-                  : null } */}
                 <h2
                   className="date"
                   data-testid={ `${index}-horizontal-done-date` }
